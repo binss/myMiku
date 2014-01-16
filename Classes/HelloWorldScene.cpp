@@ -1,23 +1,5 @@
 #include "HelloWorldScene.h"
 
-USING_NS_CC;
-using namespace extension;
-
-CCScene* HelloWorld::scene()
-{
-    // 'scene' is an autorelease object
-    CCScene *scene = CCScene::create();
-    
-    // 'layer' is an autorelease object
-    HelloWorld *layer = HelloWorld::create();
-
-    // add layer as a child to scene
-    scene->addChild(layer);
-
-    // return the scene
-    return scene;
-}
-
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
@@ -55,25 +37,9 @@ bool HelloWorld::init()
 
     // add a label shows "Hello World"
     // create and initialize a label
-    /*
-    CCLabelTTF* pLabel = CCLabelTTF::create("Hello World", "Arial", 24);
     
-    // position the label on the center of the screen
-    pLabel->setPosition(ccp(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - pLabel->getContentSize().height));
-
-    // add the label as a child to this layer
-    this->addChild(pLabel, 1);
-
-    // add "HelloWorld" splash screen"
-    CCSprite* pSprite = CCSprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    pSprite->setPosition(ccp(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(pSprite, 0);
-    */
+    
+    
     //加载动画资源
 	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("miku0.png","miku0.plist","miku.ExportJson");
     
@@ -85,12 +51,35 @@ bool HelloWorld::init()
 	armature->setScale(1.8f);
     
 	//设置显示位置
-	armature->setPosition(ccp(visibleSize.width * 0.5, armature->getContentSize().height/2+20));
+	armature->setPosition(ccp(visibleSize.width * 0.5, armature->getContentSize().height/2+190));
     
 	//添加到层
 	this->addChild(armature,0);
-
+    this->setTouchEnabled(true);
+    this->setTouchMode(kCCTouchesOneByOne);
+    
     return true;
+}
+
+void HelloWorld::registerWithTouchDispatcher()
+{
+    CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,30,true);
+}
+
+bool HelloWorld::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+{
+    CCLOG("A");
+    return true;
+}
+/*
+void HelloWorld::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+{
+    CCLOG("yeah");
+}
+*/
+void HelloWorld::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+{
+    
 }
 
 

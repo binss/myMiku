@@ -9,6 +9,14 @@
 #ifndef __myMiku__MainScene__
 #define __myMiku__MainScene__
 
-#include <iostream>
+#include "HelloWorldScene.h"
+#include "bottonLayer.h"
+
+class MainScene : public cocos2d::CCScene
+{
+public:
+    static cocos2d::CCScene* scene();
+    
+};
 
 #endif /* defined(__myMiku__MainScene__) */
