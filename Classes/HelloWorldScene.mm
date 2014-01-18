@@ -1,6 +1,11 @@
 #include "HelloWorldScene.h"
+#include "QuestionBox/QuestionBox.h"
+
 
 // on "init" you need to initialize your instance
+
+QuestionBox * box;
+
 bool HelloWorld::init()
 {
     //////////////////////////////
@@ -68,9 +73,24 @@ void HelloWorld::registerWithTouchDispatcher()
 
 bool HelloWorld::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-    CCLOG("A");
+    //CCMessageBox("this is content","title");
+    box = [[QuestionBox alloc] init];
+    [box hMessageBox:@"是否喂食？" title:@"喂食"];
+    schedule(schedule_selector(HelloWorld::checkQuestionBoxStatus), 0.1f);
     return true;
 }
+
+void HelloWorld::checkQuestionBoxStatus(float dt)
+{
+    if(box.status != 0 )
+    {
+        CCLog("%i",box.status);
+        unschedule(schedule_selector(HelloWorld::checkQuestionBoxStatus));
+        [box release];
+    }
+}
+
+
 /*
 void HelloWorld::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {

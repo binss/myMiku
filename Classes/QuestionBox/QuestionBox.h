@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface QuestionBox : NSObject
+
+
+@interface QuestionBox : UIViewController<UIAlertViewDelegate>
+@property (nonatomic) int status;
+- (void) hMessageBox:(NSString*)pszMsg title:(NSString*)pszTitle;
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end
