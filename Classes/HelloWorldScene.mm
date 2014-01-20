@@ -73,10 +73,13 @@ void HelloWorld::registerWithTouchDispatcher()
 
 bool HelloWorld::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-    //CCMessageBox("this is content","title");
-    box = [[QuestionBox alloc] init];
-    [box hMessageBox:@"是否喂食？" title:@"喂食"];
-    schedule(schedule_selector(HelloWorld::checkQuestionBoxStatus), 0.1f);
+    if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    {
+        //CCMessageBox("this is content","title");
+        box = [[QuestionBox alloc] init];
+        [box hMessageBox:@"是否喂食？" title:@"喂食"];
+        schedule(schedule_selector(HelloWorld::checkQuestionBoxStatus), 0.1f);
+    }
     return true;
 }
 

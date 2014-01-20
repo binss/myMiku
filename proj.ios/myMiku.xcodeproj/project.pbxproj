@@ -173,6 +173,9 @@
 		340778661886CD7600B232D2 /* bottonLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340778641886CD7600B232D2 /* bottonLayer.cpp */; };
 		340778691886CDC600B232D2 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340778671886CDC600B232D2 /* MainScene.cpp */; };
 		3407786C1886F50700B232D2 /* buttons in Resources */ = {isa = PBXBuildFile; fileRef = 3407786B1886F50700B232D2 /* buttons */; };
+		3420F0CA188CBE8E008EE6E2 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0C8188CBE8E008EE6E2 /* SceneManager.cpp */; };
+		3420F0CE188CE0DC008EE6E2 /* StringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0CC188CE0DC008EE6E2 /* StringUtil.cpp */; };
+		3420F0D1188CE477008EE6E2 /* FileLoadUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0CF188CE477008EE6E2 /* FileLoadUtil.cpp */; };
 		342EE00A188A74E200D69D7E /* QuestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 342EE009188A74E200D69D7E /* QuestionBox.m */; };
 		34E1EC5618867B2A00CBE621 /* miku.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5318867B2A00CBE621 /* miku.ExportJson */; };
 		34E1EC5718867B2A00CBE621 /* miku0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5418867B2A00CBE621 /* miku0.plist */; };
@@ -601,6 +604,12 @@
 		340778671886CDC600B232D2 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = ../Classes/MainScene.cpp; sourceTree = "<group>"; };
 		340778681886CDC600B232D2 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = ../Classes/MainScene.h; sourceTree = "<group>"; };
 		3407786B1886F50700B232D2 /* buttons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = buttons; sourceTree = "<group>"; };
+		3420F0C8188CBE8E008EE6E2 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneManager.cpp; path = ../Classes/SceneManager.cpp; sourceTree = "<group>"; };
+		3420F0C9188CBE8E008EE6E2 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneManager.h; path = ../Classes/SceneManager.h; sourceTree = "<group>"; };
+		3420F0CC188CE0DC008EE6E2 /* StringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtil.cpp; sourceTree = "<group>"; };
+		3420F0CD188CE0DC008EE6E2 /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
+		3420F0CF188CE477008EE6E2 /* FileLoadUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileLoadUtil.cpp; sourceTree = "<group>"; };
+		3420F0D0188CE477008EE6E2 /* FileLoadUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileLoadUtil.h; sourceTree = "<group>"; };
 		342EE008188A74E200D69D7E /* QuestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionBox.h; path = ../Classes/QuestionBox/QuestionBox.h; sourceTree = "<group>"; };
 		342EE009188A74E200D69D7E /* QuestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionBox.m; path = ../Classes/QuestionBox/QuestionBox.m; sourceTree = "<group>"; };
 		34E1EC5318867B2A00CBE621 /* miku.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = miku.ExportJson; sourceTree = "<group>"; };
@@ -1265,6 +1274,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3420F0CB188CE06B008EE6E2 /* toolClasses */,
 				342EE004188A741300D69D7E /* QuestionBox */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
@@ -1274,6 +1284,8 @@
 				340778651886CD7600B232D2 /* bottonLayer.h */,
 				340778671886CDC600B232D2 /* MainScene.cpp */,
 				340778681886CDC600B232D2 /* MainScene.h */,
+				3420F0C8188CBE8E008EE6E2 /* SceneManager.cpp */,
+				3420F0C9188CBE8E008EE6E2 /* SceneManager.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1414,6 +1426,18 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3420F0CB188CE06B008EE6E2 /* toolClasses */ = {
+			isa = PBXGroup;
+			children = (
+				3420F0CC188CE0DC008EE6E2 /* StringUtil.cpp */,
+				3420F0CD188CE0DC008EE6E2 /* StringUtil.h */,
+				3420F0CF188CE477008EE6E2 /* FileLoadUtil.cpp */,
+				3420F0D0188CE477008EE6E2 /* FileLoadUtil.h */,
+			);
+			name = toolClasses;
+			path = ../Classes/toolClasses;
 			sourceTree = "<group>";
 		};
 		342EE004188A741300D69D7E /* QuestionBox */ = {
@@ -1870,6 +1894,7 @@
 				375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */,
 				15A3D90D1682F7D5002FB0C5 /* b2Math.cpp in Sources */,
 				15A3D90E1682F7D5002FB0C5 /* b2Settings.cpp in Sources */,
+				3420F0D1188CE477008EE6E2 /* FileLoadUtil.cpp in Sources */,
 				15A3D90F1682F7D5002FB0C5 /* b2StackAllocator.cpp in Sources */,
 				15A3D9101682F7D5002FB0C5 /* b2Timer.cpp in Sources */,
 				15A3D9111682F7D5002FB0C5 /* b2Body.cpp in Sources */,
@@ -1942,6 +1967,7 @@
 				15A3DA3A1682F826002FB0C5 /* CCData.cpp in Sources */,
 				15A3DA3B1682F826002FB0C5 /* CCLabelBMFontLoader.cpp in Sources */,
 				15A3DA3C1682F826002FB0C5 /* CCLabelTTFLoader.cpp in Sources */,
+				3420F0CA188CBE8E008EE6E2 /* SceneManager.cpp in Sources */,
 				15A3DA3D1682F826002FB0C5 /* CCLayerColorLoader.cpp in Sources */,
 				15A3DA3E1682F826002FB0C5 /* CCLayerGradientLoader.cpp in Sources */,
 				15A3DA3F1682F826002FB0C5 /* CCLayerLoader.cpp in Sources */,
@@ -1965,6 +1991,7 @@
 				15A3DA4F1682F826002FB0C5 /* CCControlSlider.cpp in Sources */,
 				15A3DA501682F826002FB0C5 /* CCControlStepper.cpp in Sources */,
 				15A3DA511682F826002FB0C5 /* CCControlSwitch.cpp in Sources */,
+				3420F0CE188CE0DC008EE6E2 /* StringUtil.cpp in Sources */,
 				15A3DA521682F826002FB0C5 /* CCControlUtils.cpp in Sources */,
 				375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */,
 				15A3DA531682F826002FB0C5 /* CCInvocation.cpp in Sources */,
@@ -2132,7 +2159,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yanwen Cheng (HZ8WZLL2PS)";
 				COPY_PHASE_STRIP = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_INPUT_FILETYPE = automatic;
