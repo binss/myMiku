@@ -44,6 +44,8 @@ private:
 	CCSize winSize;
 	CCArray *leftArray;
     CCArray *rightArray;
+    int line;
+    const char * file;
     
     CREATE_FUNC(GameSceneTouchLayer);
 };

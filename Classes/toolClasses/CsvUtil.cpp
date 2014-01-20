@@ -17,17 +17,20 @@ CsvUtil* CsvUtil::sharedCsvUtil()
     if(bCsvUtil == NULL)
     {
         bCsvUtil = new CsvUtil();
+        bCsvUtil->init();
+        /*
+        bCsvUtil = new CsvUtil();
         if(bCsvUtil && bCsvUtil->init())
         {
-            bCsvUtil->autorelease();
+            bCsvUtil->autorelease();                    //罪魁祸首！！！如果自动释放，那么CCDictionary各种报错！！！
         }
         else
         {
             CC_SAFE_DELETE(bCsvUtil);
             bCsvUtil = NULL;
         }
+         */
     }
-    
     return bCsvUtil;
 }
 
@@ -35,7 +38,7 @@ bool CsvUtil::init()
 {
     bCsvDict = CCDictionary::create();          //初始化变量
     bCsvDict->retain();
-
+    
     return true;
 }
 
@@ -57,7 +60,6 @@ void CsvUtil::loadFile( const char* sPath )
             csvStrList->addObject(tArr);                    //加入csvStrList数组中
         }
     }
-    
     bCsvDict->setObject(csvStrList, sPath);
 }
 
@@ -82,7 +84,7 @@ const char* CsvUtil::get( int iRow, int iCol, const char* csvFilePath )
     
     if(iRow >= iRowNum || iCol >= iColNum)  //越界检查
     {
-        return "";
+        return "out of bound";
     }
     
     CCObject* rowObj = csvStrList->objectAtIndex(iRow);     //获取iRow行数据
@@ -133,7 +135,7 @@ const CCSize CsvUtil::getFileRowColNum( const char* csvFilePath )
 const int CsvUtil::getInt( int iRow, int iCol, const char* csvFilePath )
 {
 	const char* chData = get(iRow, iCol, csvFilePath);
-    
+
 	return atoi(chData);
 }
 

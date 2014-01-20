@@ -44,7 +44,10 @@ CCArray* FileLoadUtil::getDataLines( const char* sFilePath )
     
     CCString* str = CCString::createWithData(chDatas, pSize);                                       //转换成CCString类型
 
-    linesList = StringUtil::sharedStrUtil()->split(str->getCString(), "\n");                        //调用StringUtil类的分割函数
-                                                                                                //以“/n”即换行为分隔符，得到一行的内容    
+    linesList = StringUtil::sharedStrUtil()->split(str->getCString(), "\r");                        //调用StringUtil类的分割函数
+    /*
+        注:以“\r”即换行为分隔符，得到一行的内容
+            mac/linux系统下\r为换行符，而在windows下\n为换行符，切记切记
+    */
     return linesList;
 }

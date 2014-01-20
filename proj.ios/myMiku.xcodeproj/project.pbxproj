@@ -185,6 +185,7 @@
 		34E1EC5618867B2A00CBE621 /* miku.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5318867B2A00CBE621 /* miku.ExportJson */; };
 		34E1EC5718867B2A00CBE621 /* miku0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5418867B2A00CBE621 /* miku0.plist */; };
 		34E1EC5818867B2A00CBE621 /* miku0.png in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5518867B2A00CBE621 /* miku0.png */; };
+		34F05C58188D4B85004A3909 /* notation in Resources */ = {isa = PBXBuildFile; fileRef = 34F05C57188D4B85004A3909 /* notation */; };
 		375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BB1868411B0024609E /* ObjectFactory.cpp */; };
 		375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BD1868411B0024609E /* TriggerBase.cpp */; };
 		375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BF1868411B0024609E /* TriggerMng.cpp */; };
@@ -629,6 +630,7 @@
 		34E1EC5318867B2A00CBE621 /* miku.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = miku.ExportJson; sourceTree = "<group>"; };
 		34E1EC5418867B2A00CBE621 /* miku0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = miku0.plist; sourceTree = "<group>"; };
 		34E1EC5518867B2A00CBE621 /* miku0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = miku0.png; sourceTree = "<group>"; };
+		34F05C57188D4B85004A3909 /* notation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = notation; sourceTree = "<group>"; };
 		373B911F18788FB000198F86 /* CCComBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCComBase.h; sourceTree = "<group>"; };
 		375BD4BB1868411B0024609E /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFactory.cpp; sourceTree = "<group>"; };
 		375BD4BC1868411B0024609E /* ObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
@@ -1783,6 +1785,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				34F05C57188D4B85004A3909 /* notation */,
 				346E84B6188CFF2F00F2D7D5 /* game */,
 				3407786B1886F50700B232D2 /* buttons */,
 				34E1EC5318867B2A00CBE621 /* miku.ExportJson */,
@@ -1878,6 +1881,7 @@
 				34E1EC5618867B2A00CBE621 /* miku.ExportJson in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
+				34F05C58188D4B85004A3909 /* notation in Resources */,
 				3407786C1886F50700B232D2 /* buttons in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
