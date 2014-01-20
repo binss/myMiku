@@ -7,6 +7,7 @@
 //
 
 #include "bottonLayer.h"
+#include "SceneManager.h"
 USING_NS_CC;
 
 bool bottonLayer::init()
@@ -18,7 +19,7 @@ bool bottonLayer::init()
         return false;
     }
     
-    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    //CCSize size = CCDirector::sharedDirector()->getWinSize();
 
     CCLayerColor *layer = CCLayerColor::create(ccc4(192, 192, 192, 255));
     //CCLayer *layer = CCLayer::create();
@@ -38,17 +39,17 @@ bool bottonLayer::init()
     menuItem1->setPosition(ccpAdd(ccp(16,20),ccp(spriteSize,spriteSize)));
     CCMenuItemSprite *menuItem2 = CCMenuItemSprite::create(sprite2, sprite2, this, menu_selector(bottonLayer::menu2Callback));
     menuItem2->setPosition(ccpAdd(ccp(176,20), ccp(spriteSize,spriteSize)));
-    CCMenuItemSprite *menuItem3 = CCMenuItemSprite::create(sprite3, sprite3, this, menu_selector(bottonLayer::menu2Callback));
+    CCMenuItemSprite *menuItem3 = CCMenuItemSprite::create(sprite3, sprite3, this, menu_selector(bottonLayer::menu3Callback));
     menuItem3->setPosition(ccpAdd(ccp(336,20), ccp(spriteSize,spriteSize)));
-    CCMenuItemSprite *menuItem4 = CCMenuItemSprite::create(sprite4, sprite4, this, menu_selector(bottonLayer::menu2Callback));
+    CCMenuItemSprite *menuItem4 = CCMenuItemSprite::create(sprite4, sprite4, this, menu_selector(bottonLayer::menu3Callback));
     menuItem4->setPosition(ccpAdd(ccp(496,20), ccp(spriteSize,spriteSize)));
-    CCMenuItemSprite *menuItem5 = CCMenuItemSprite::create(sprite5, sprite5, this, menu_selector(bottonLayer::menu2Callback));
+    CCMenuItemSprite *menuItem5 = CCMenuItemSprite::create(sprite5, sprite5, this, menu_selector(bottonLayer::menu3Callback));
     menuItem5->setPosition(ccpAdd(ccp(656,20), ccp(spriteSize,spriteSize)));
-    CCMenuItemSprite *menuItem6 = CCMenuItemSprite::create(sprite6, sprite6, this, menu_selector(bottonLayer::menu2Callback));
+    CCMenuItemSprite *menuItem6 = CCMenuItemSprite::create(sprite6, sprite6, this, menu_selector(bottonLayer::menu3Callback));
     menuItem6->setPosition(ccpAdd(ccp(816,20), ccp(spriteSize,spriteSize)));
-    CCMenuItemSprite *menuItem7 = CCMenuItemSprite::create(sprite7, sprite7, this, menu_selector(bottonLayer::menu2Callback));
+    CCMenuItemSprite *menuItem7 = CCMenuItemSprite::create(sprite7, sprite7, this, menu_selector(bottonLayer::menu3Callback));
     menuItem7->setPosition(ccpAdd(ccp(976,20), ccp(spriteSize,spriteSize)));
-    CCMenuItemSprite *menuItem8 = CCMenuItemSprite::create(sprite8, sprite8, this, menu_selector(bottonLayer::menu2Callback));
+    CCMenuItemSprite *menuItem8 = CCMenuItemSprite::create(sprite8, sprite8, this, menu_selector(bottonLayer::menu3Callback));
     menuItem8->setPosition(ccpAdd(ccp(1136,20), ccp(spriteSize,spriteSize)));
 
     CCMenu *menu = CCMenu::create(menuItem1, menuItem2,menuItem3,menuItem4,menuItem5,menuItem6,menuItem7,menuItem8, NULL);
@@ -95,6 +96,7 @@ void bottonLayer::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEven
 void bottonLayer::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     
+    
 }
 
 void bottonLayer::menu1Callback(cocos2d::CCNode *pSender)
@@ -104,5 +106,12 @@ void bottonLayer::menu1Callback(cocos2d::CCNode *pSender)
 
 void bottonLayer::menu2Callback(cocos2d::CCNode *pSender)
 {
-    CCLOG("menu2Callback");
+    SceneManager::sharedSceneManager()->changeScene(SceneManager::en_GameScene);
+
+}
+
+void bottonLayer::menu3Callback(cocos2d::CCNode *pSender)
+{
+    CCLOG("menu3Callback");
+    
 }

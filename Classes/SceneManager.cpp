@@ -8,6 +8,7 @@
 
 #include "SceneManager.h"
 #include "MainScene.h"
+#include "GameScene.h"
 SceneManager* SceneManager::mSceneManager = NULL;
 
 SceneManager* SceneManager::sharedSceneManager()
@@ -43,8 +44,12 @@ void SceneManager::changeScene( EnumSceneType enScenType )
             pScene = MainScene::scene();
             break;
         case  en_GameScene:          //游戏界面
-            
+        {
+            CCDirector::sharedDirector()->replaceScene(CCTransitionProgressHorizontal::create(1.0f, GameScene::newGameScene()));
             break;
+
+        }
+            
     }
     
     if(pScene == NULL)
