@@ -38,6 +38,12 @@ private:
 	void createElement(float dt);
     void rubbishCollection(CCObject *object);
     void menuCallback(CCNode *pSender);
+    void updateCycle(float dt);
+    void setSign(bool side,int sign);
+    void hideLeftSign(float dt);
+    void hideRightSign(float dt);
+    void setSadSign(CCObject *object);
+
 	//void rubbishCollection(CCObject *object);
     //void gameOver();
 	
@@ -46,8 +52,27 @@ private:
 	CCSize winSize;
 	CCArray *leftArray;
     CCArray *rightArray;
+    
+    CCSprite *leftCycle;
+    CCSprite *rightCycle;
+    CCSprite *leftCoolSign;
+    CCSprite *leftFineSign;
+    CCSprite *leftSafeSign;
+    CCSprite *leftSadSign;
+    CCSprite *rightCoolSign;
+    CCSprite *rightFineSign;
+    CCSprite *rightSafeSign;
+    CCSprite *rightSadSign;
+
     int line;
     const char * file;
+    enum sign
+    {
+        cool = 0,
+        fine,
+        safe,
+        sad
+    };
     
     CREATE_FUNC(GameSceneTouchLayer);
 };
