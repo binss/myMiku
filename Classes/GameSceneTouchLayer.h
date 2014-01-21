@@ -32,10 +32,12 @@ public:
 private:
     
 	void update(float dt);
-    virtual bool ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
-    virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
-    virtual void ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
+    virtual void ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent);
+    virtual void ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent);
+    virtual void ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent);
 	void createElement(float dt);
+    void rubbishCollection(CCObject *object);
+    void menuCallback(CCNode *pSender);
 	//void rubbishCollection(CCObject *object);
     //void gameOver();
 	
