@@ -8,6 +8,7 @@
 
 #include "GameSceneTouchLayer.h"
 #include "toolClasses/CsvUtil.h"
+#include "AudioPlayer.h"
 
 bool GameSceneTouchLayer::init()
 {
@@ -15,6 +16,8 @@ bool GameSceneTouchLayer::init()
 	leftArray->retain();
     rightArray = CCArray::create();
 	rightArray->retain();
+    
+    AudioPlayer::sharedAudio();
    
 	this->setTouchEnabled(true);
 	this->setTouchMode(kCCTouchesAllAtOnce);            //多点触摸
@@ -64,7 +67,7 @@ bool GameSceneTouchLayer::init()
     
     this->addChild(leftCycle);
     this->addChild(rightCycle);
-    this->scheduleUpdate();
+    //this->scheduleUpdate();
     
     
     CCLabelTTF* pLabel = CCLabelTTF::create("test", "Arial", 50);//参数分别是：按钮要显示的文字，字体，字号
@@ -99,7 +102,27 @@ bool GameSceneTouchLayer::init()
 
 void GameSceneTouchLayer::menuCallback(CCNode *pSender)
 {
+    AudioPlayer::sharedAudio()->preLoadMusic(deepSeaGirl);
+    this->scheduleOnce(schedule_selector(GameSceneTouchLayer::start),3.0f);
+    
+}
+
+void GameSceneTouchLayer::start(CCNode *pSender)
+{
+    float musicTime = 215.0f;
+    AudioPlayer::sharedAudio()->playMusic(deepSeaGirl);
     this->schedule(schedule_selector(GameSceneTouchLayer::createElement),1.0f);
+    coolNum = 0;
+    fineNum = 0;
+    safeNum = 0;
+    sadNum = 0;
+    this->scheduleOnce(schedule_selector(GameSceneTouchLayer::finish),musicTime);
+}
+
+void GameSceneTouchLayer::finish(CCNode *pSender)
+{
+    unschedule(schedule_selector(GameSceneTouchLayer::createElement));
+    CCLOG("cool: %i  fine: %i  safe: %i  sad: %i",coolNum,fineNum,safeNum,sadNum);
 }
 
 void GameSceneTouchLayer::createElement(float dt)
@@ -156,6 +179,7 @@ void GameSceneTouchLayer::setSadSign(CCObject *object)
         setSign(true, sad);
     if (sprite->getTag() == 2 )
         setSign(false, sad);
+    sadNum ++;
 }
 
 void GameSceneTouchLayer::update(float dt)
@@ -259,8 +283,9 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
         printf("%f\t%f\n", ccp.x, ccp.y);
         if(ccp.y < 200)                                                         //只允许y值小于200的触摸生效
         {
-            if(ccp.x > 50 && ccp.x < 170)                                       //只允许x值为50-170(leftCycle)的触摸生效
+            if(ccp.x > 40 && ccp.x < 180)                                       //只允许x值为40-180(leftCycle)的触摸生效
             {
+                AudioPlayer::sharedAudio()->playEffect(leftClick);              //击打音效
                 CCARRAY_FOREACH(leftArray,obj)
                 {
                     CCSprite *object = (CCSprite*)obj;
@@ -269,12 +294,20 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
                     if(y <= 200 )
                     {
                         if( y >= 90 && y <= 130 )
+                        {
                             setSign(true, cool);
+                            coolNum ++;
+                        }
                         else if(( y > 130 && y <= 170) || ( y >= 50 && y < 90 ))
+                        {
                             setSign(true, fine);
+                            fineNum ++;
+                        }
                         else if(( y > 170 && y <= 200) || ( y >= 20 && y < 50))
+                        {
                             setSign(true, safe);
-                            
+                            safeNum ++;
+                        }
                         rubbishCollection(object);
                         CCParticleSystem * particle=CCParticleExplosion::create();
                         particle->setPosition(ccp(x,y));
@@ -284,8 +317,9 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
                     }
                 }
             }
-            if(ccp.x > 470 && ccp.x < 590)                                      //只允许x值为470-590(rightCycle)的触摸生效
+            if(ccp.x > 460 && ccp.x < 600)                                      //只允许x值为460-600(rightCycle)的触摸生效
             {
+                AudioPlayer::sharedAudio()->playEffect(rightClick);             //击打音效
                 CCARRAY_FOREACH(rightArray,obj)
                 {
                     CCSprite *object = (CCSprite*)obj;
@@ -294,11 +328,20 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
                     if(y <= 200 )
                     {
                         if( y >= 90 && y <= 130 )
+                        {
                             setSign(false, cool);
+                            coolNum ++;
+                        }
                         else if(( y > 130 && y <= 170) || ( y >= 50 && y < 90 ))
+                        {
                             setSign(false, fine);
+                            fineNum ++;
+                        }
                         else if(( y > 170 && y <= 200) || ( y >= 20 && y < 50))
+                        {
                             setSign(false, safe);
+                            safeNum ++;
+                        }
                         
                         rubbishCollection(object);
                         CCParticleSystem * particle=CCParticleExplosion::create();

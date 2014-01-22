@@ -179,6 +179,9 @@
 		3420F0D4188CE785008EE6E2 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0D2188CE785008EE6E2 /* GameScene.cpp */; };
 		3420F0D7188CE960008EE6E2 /* GameSceneTouchLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0D5188CE960008EE6E2 /* GameSceneTouchLayer.cpp */; };
 		3420F0DA188CE971008EE6E2 /* GameSceneDisplayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0D8188CE971008EE6E2 /* GameSceneDisplayLayer.cpp */; };
+		342923D5188FC9C00040960C /* AudioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 342923D3188FC9C00040960C /* AudioPlayer.cpp */; };
+		342923D7188FD20A0040960C /* effects in Resources */ = {isa = PBXBuildFile; fileRef = 342923D6188FD20A0040960C /* effects */; };
+		342923D9188FE3E50040960C /* music in Resources */ = {isa = PBXBuildFile; fileRef = 342923D8188FE3E50040960C /* music */; };
 		342EE00A188A74E200D69D7E /* QuestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 342EE009188A74E200D69D7E /* QuestionBox.m */; };
 		346E84B7188CFF3000F2D7D5 /* game in Resources */ = {isa = PBXBuildFile; fileRef = 346E84B6188CFF2F00F2D7D5 /* game */; };
 		346E84BA188D016C00F2D7D5 /* CsvUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 346E84B8188D016C00F2D7D5 /* CsvUtil.cpp */; };
@@ -622,6 +625,10 @@
 		3420F0D6188CE960008EE6E2 /* GameSceneTouchLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneTouchLayer.h; sourceTree = "<group>"; };
 		3420F0D8188CE971008EE6E2 /* GameSceneDisplayLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSceneDisplayLayer.cpp; sourceTree = "<group>"; };
 		3420F0D9188CE971008EE6E2 /* GameSceneDisplayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneDisplayLayer.h; sourceTree = "<group>"; };
+		342923D3188FC9C00040960C /* AudioPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AudioPlayer.cpp; path = ../Classes/AudioPlayer.cpp; sourceTree = "<group>"; };
+		342923D4188FC9C00040960C /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayer.h; path = ../Classes/AudioPlayer.h; sourceTree = "<group>"; };
+		342923D6188FD20A0040960C /* effects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = effects; sourceTree = "<group>"; };
+		342923D8188FE3E50040960C /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
 		342EE008188A74E200D69D7E /* QuestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionBox.h; path = ../Classes/QuestionBox/QuestionBox.h; sourceTree = "<group>"; };
 		342EE009188A74E200D69D7E /* QuestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionBox.m; path = ../Classes/QuestionBox/QuestionBox.m; sourceTree = "<group>"; };
 		346E84B6188CFF2F00F2D7D5 /* game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = game; sourceTree = "<group>"; };
@@ -1308,6 +1315,8 @@
 				3420F0D5188CE960008EE6E2 /* GameSceneTouchLayer.cpp */,
 				3420F0D8188CE971008EE6E2 /* GameSceneDisplayLayer.cpp */,
 				3420F0D9188CE971008EE6E2 /* GameSceneDisplayLayer.h */,
+				342923D3188FC9C00040960C /* AudioPlayer.cpp */,
+				342923D4188FC9C00040960C /* AudioPlayer.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1785,6 +1794,8 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				342923D8188FE3E50040960C /* music */,
+				342923D6188FD20A0040960C /* effects */,
 				34F05C57188D4B85004A3909 /* notation */,
 				346E84B6188CFF2F00F2D7D5 /* game */,
 				3407786B1886F50700B232D2 /* buttons */,
@@ -1889,7 +1900,9 @@
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				34E1EC5718867B2A00CBE621 /* miku0.plist in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
+				342923D9188FE3E50040960C /* music in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
+				342923D7188FD20A0040960C /* effects in Resources */,
 				346E84B7188CFF3000F2D7D5 /* game in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 			);
@@ -2069,6 +2082,7 @@
 				1A8F3B7D175E05DA00049216 /* SkeletonData.cpp in Sources */,
 				1A8F3B7E175E05DA00049216 /* SkeletonJson.cpp in Sources */,
 				1A8F3B7F175E05DA00049216 /* Skin.cpp in Sources */,
+				342923D5188FC9C00040960C /* AudioPlayer.cpp in Sources */,
 				1A8F3B80175E05DA00049216 /* Slot.cpp in Sources */,
 				1A8F3B81175E05DA00049216 /* SlotData.cpp in Sources */,
 				1A8F3B82175E05DA00049216 /* spine-cocos2dx.cpp in Sources */,

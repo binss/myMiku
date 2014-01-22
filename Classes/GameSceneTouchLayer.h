@@ -11,15 +11,37 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
-#include "SimpleAudioEngine.h"
+//#include "SimpleAudioEngine.h"
 
 using namespace std;
 USING_NS_CC;
 using namespace extension;
-using namespace CocosDenshion;
+//using namespace CocosDenshion;
+
+
 
 class GameSceneTouchLayer : public cocos2d::CCLayer
 {
+    enum sign
+    {
+        cool = 0,
+        fine,
+        safe,
+        sad
+    };
+    
+    enum click
+    {
+        leftClick = 0,
+        rightClick
+    };
+    
+    
+    
+    enum musicList
+    {
+        deepSeaGirl = 0
+    };
 public:
     
     bool init();
@@ -43,6 +65,8 @@ private:
     void hideLeftSign(float dt);
     void hideRightSign(float dt);
     void setSadSign(CCObject *object);
+    void start(CCNode *pSender);
+    void finish(CCNode *pSender);
 
 	//void rubbishCollection(CCObject *object);
     //void gameOver();
@@ -66,13 +90,11 @@ private:
 
     int line;
     const char * file;
-    enum sign
-    {
-        cool = 0,
-        fine,
-        safe,
-        sad
-    };
+    int coolNum;
+    int fineNum;
+    int safeNum;
+    int sadNum;
+
     
     CREATE_FUNC(GameSceneTouchLayer);
 };
