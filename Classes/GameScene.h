@@ -25,6 +25,7 @@ public:
     static GameScene * shareGameScene();
 	static GameScene * newGameScene();
     GameSceneTouchLayer * touchLayer;
+    GameSceneDisplayLayer * displayLayer;
     
 	//MenuLayer* menuLayer;
 };

@@ -41,7 +41,7 @@ bool bottonLayer::init()
     menuItem2->setPosition(ccpAdd(ccp(176,20), ccp(spriteSize,spriteSize)));
     CCMenuItemSprite *menuItem3 = CCMenuItemSprite::create(sprite3, sprite3, this, menu_selector(bottonLayer::menu3Callback));
     menuItem3->setPosition(ccpAdd(ccp(336,20), ccp(spriteSize,spriteSize)));
-    CCMenuItemSprite *menuItem4 = CCMenuItemSprite::create(sprite4, sprite4, this, menu_selector(bottonLayer::menu3Callback));
+    CCMenuItemSprite *menuItem4 = CCMenuItemSprite::create(sprite4, sprite4, this, menu_selector(bottonLayer::menu4Callback));
     menuItem4->setPosition(ccpAdd(ccp(496,20), ccp(spriteSize,spriteSize)));
     CCMenuItemSprite *menuItem5 = CCMenuItemSprite::create(sprite5, sprite5, this, menu_selector(bottonLayer::menu3Callback));
     menuItem5->setPosition(ccpAdd(ccp(656,20), ccp(spriteSize,spriteSize)));
@@ -113,5 +113,11 @@ void bottonLayer::menu2Callback(cocos2d::CCNode *pSender)
 void bottonLayer::menu3Callback(cocos2d::CCNode *pSender)
 {
     CCLOG("menu3Callback");
+    
+}
+
+void bottonLayer::menu4Callback(cocos2d::CCNode *pSender)
+{
+    SceneManager::sharedSceneManager()->changeScene(SceneManager::en_GameSongSelectScene);
     
 }

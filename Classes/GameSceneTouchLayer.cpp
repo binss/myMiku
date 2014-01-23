@@ -9,6 +9,8 @@
 #include "GameSceneTouchLayer.h"
 #include "toolClasses/CsvUtil.h"
 #include "AudioPlayer.h"
+#include "GameScene.h"
+
 
 bool GameSceneTouchLayer::init()
 {
@@ -31,35 +33,35 @@ bool GameSceneTouchLayer::init()
     rightCycle->setPosition(ccp(winSize.width - rightCycle->getContentSize().width / 2 - 50, rightCycle->getContentSize().height / 2 + 50));
     
     leftCoolSign = CCSprite::create("game/cool.png");
-    leftCoolSign->setPosition(ccp(240, 105));
+    leftCoolSign->setPosition(ccp(240, 75));
     this->addChild(leftCoolSign);
     
     leftFineSign = CCSprite::create("game/fine.png");
-    leftFineSign->setPosition(ccp(240, 105));
+    leftFineSign->setPosition(ccp(240, 75));
     this->addChild(leftFineSign);
     
     leftSafeSign = CCSprite::create("game/safe.png");
-    leftSafeSign->setPosition(ccp(240, 105));
+    leftSafeSign->setPosition(ccp(240, 75));
     this->addChild(leftSafeSign);
     
     leftSadSign = CCSprite::create("game/sad.png");
-    leftSadSign->setPosition(ccp(240, 105));
+    leftSadSign->setPosition(ccp(240, 75));
     this->addChild(leftSadSign);
     
     rightCoolSign = CCSprite::create("game/cool.png");
-    rightCoolSign->setPosition(ccp(400, 105));
+    rightCoolSign->setPosition(ccp(400, 75));
     this->addChild(rightCoolSign);
     
     rightFineSign = CCSprite::create("game/fine.png");
-    rightFineSign->setPosition(ccp(400, 105));
+    rightFineSign->setPosition(ccp(400, 75));
     this->addChild(rightFineSign);
     
     rightSafeSign = CCSprite::create("game/safe.png");
-    rightSafeSign->setPosition(ccp(400, 105));
+    rightSafeSign->setPosition(ccp(400, 75));
     this->addChild(rightSafeSign);
     
     rightSadSign = CCSprite::create("game/sad.png");
-    rightSadSign->setPosition(ccp(400, 105));
+    rightSadSign->setPosition(ccp(400, 75));
     this->addChild(rightSadSign);
     
     hideLeftSign(0.1f);
@@ -286,6 +288,7 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
             if(ccp.x > 40 && ccp.x < 180)                                       //只允许x值为40-180(leftCycle)的触摸生效
             {
                 AudioPlayer::sharedAudio()->playEffect(leftClick);              //击打音效
+                GameScene::shareGameScene()->displayLayer->turnLeft();
                 CCARRAY_FOREACH(leftArray,obj)
                 {
                     CCSprite *object = (CCSprite*)obj;
@@ -320,6 +323,8 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
             if(ccp.x > 460 && ccp.x < 600)                                      //只允许x值为460-600(rightCycle)的触摸生效
             {
                 AudioPlayer::sharedAudio()->playEffect(rightClick);             //击打音效
+                GameScene::shareGameScene()->displayLayer->turnRight();
+
                 CCARRAY_FOREACH(rightArray,obj)
                 {
                     CCSprite *object = (CCSprite*)obj;

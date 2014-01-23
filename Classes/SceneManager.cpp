@@ -9,6 +9,8 @@
 #include "SceneManager.h"
 #include "MainScene.h"
 #include "GameScene.h"
+#include "GameSongSelectScene.h"
+
 SceneManager* SceneManager::mSceneManager = NULL;
 
 SceneManager* SceneManager::sharedSceneManager()
@@ -42,6 +44,9 @@ void SceneManager::changeScene( EnumSceneType enScenType )
     switch (enScenType) {
         case en_MainScene:          //初音主画面
             pScene = MainScene::scene();
+            break;
+        case en_GameSongSelectScene:
+            CCDirector::sharedDirector()->replaceScene(CCTransitionProgressHorizontal::create(1.0f, GameSongSelectScene::scene()));
             break;
         case  en_GameScene:          //游戏界面
         {

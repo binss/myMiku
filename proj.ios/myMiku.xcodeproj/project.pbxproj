@@ -183,8 +183,10 @@
 		342923D7188FD20A0040960C /* effects in Resources */ = {isa = PBXBuildFile; fileRef = 342923D6188FD20A0040960C /* effects */; };
 		342923D9188FE3E50040960C /* music in Resources */ = {isa = PBXBuildFile; fileRef = 342923D8188FE3E50040960C /* music */; };
 		342EE00A188A74E200D69D7E /* QuestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 342EE009188A74E200D69D7E /* QuestionBox.m */; };
+		343DFD241891698D006BED99 /* GameSongSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343DFD221891698D006BED99 /* GameSongSelectScene.cpp */; };
 		346E84B7188CFF3000F2D7D5 /* game in Resources */ = {isa = PBXBuildFile; fileRef = 346E84B6188CFF2F00F2D7D5 /* game */; };
 		346E84BA188D016C00F2D7D5 /* CsvUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 346E84B8188D016C00F2D7D5 /* CsvUtil.cpp */; };
+		347EC9651890F3730025463C /* animation in Resources */ = {isa = PBXBuildFile; fileRef = 347EC9641890F3730025463C /* animation */; };
 		34E1EC5618867B2A00CBE621 /* miku.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5318867B2A00CBE621 /* miku.ExportJson */; };
 		34E1EC5718867B2A00CBE621 /* miku0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5418867B2A00CBE621 /* miku0.plist */; };
 		34E1EC5818867B2A00CBE621 /* miku0.png in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5518867B2A00CBE621 /* miku0.png */; };
@@ -631,9 +633,12 @@
 		342923D8188FE3E50040960C /* music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = music; sourceTree = "<group>"; };
 		342EE008188A74E200D69D7E /* QuestionBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuestionBox.h; path = ../Classes/QuestionBox/QuestionBox.h; sourceTree = "<group>"; };
 		342EE009188A74E200D69D7E /* QuestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionBox.m; path = ../Classes/QuestionBox/QuestionBox.m; sourceTree = "<group>"; };
+		343DFD221891698D006BED99 /* GameSongSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSongSelectScene.cpp; path = ../Classes/GameSongSelectScene.cpp; sourceTree = "<group>"; };
+		343DFD231891698D006BED99 /* GameSongSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSongSelectScene.h; path = ../Classes/GameSongSelectScene.h; sourceTree = "<group>"; };
 		346E84B6188CFF2F00F2D7D5 /* game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = game; sourceTree = "<group>"; };
 		346E84B8188D016C00F2D7D5 /* CsvUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CsvUtil.cpp; sourceTree = "<group>"; };
 		346E84B9188D016C00F2D7D5 /* CsvUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsvUtil.h; sourceTree = "<group>"; };
+		347EC9641890F3730025463C /* animation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = animation; sourceTree = "<group>"; };
 		34E1EC5318867B2A00CBE621 /* miku.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = miku.ExportJson; sourceTree = "<group>"; };
 		34E1EC5418867B2A00CBE621 /* miku0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = miku0.plist; sourceTree = "<group>"; };
 		34E1EC5518867B2A00CBE621 /* miku0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = miku0.png; sourceTree = "<group>"; };
@@ -1313,10 +1318,12 @@
 				3420F0D2188CE785008EE6E2 /* GameScene.cpp */,
 				3420F0D6188CE960008EE6E2 /* GameSceneTouchLayer.h */,
 				3420F0D5188CE960008EE6E2 /* GameSceneTouchLayer.cpp */,
-				3420F0D8188CE971008EE6E2 /* GameSceneDisplayLayer.cpp */,
 				3420F0D9188CE971008EE6E2 /* GameSceneDisplayLayer.h */,
+				3420F0D8188CE971008EE6E2 /* GameSceneDisplayLayer.cpp */,
 				342923D3188FC9C00040960C /* AudioPlayer.cpp */,
 				342923D4188FC9C00040960C /* AudioPlayer.h */,
+				343DFD221891698D006BED99 /* GameSongSelectScene.cpp */,
+				343DFD231891698D006BED99 /* GameSongSelectScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1794,6 +1801,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				347EC9641890F3730025463C /* animation */,
 				342923D8188FE3E50040960C /* music */,
 				342923D6188FD20A0040960C /* effects */,
 				34F05C57188D4B85004A3909 /* notation */,
@@ -1887,6 +1895,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
+				347EC9651890F3730025463C /* animation in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				34E1EC5618867B2A00CBE621 /* miku.ExportJson in Resources */,
@@ -1958,6 +1967,7 @@
 				15A3D9211682F7D5002FB0C5 /* b2FrictionJoint.cpp in Sources */,
 				15A3D9221682F7D5002FB0C5 /* b2GearJoint.cpp in Sources */,
 				15A3D9231682F7D5002FB0C5 /* b2Joint.cpp in Sources */,
+				343DFD241891698D006BED99 /* GameSongSelectScene.cpp in Sources */,
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
 				15A3D9251682F7D5002FB0C5 /* b2PrismaticJoint.cpp in Sources */,
 				15A3D9261682F7D5002FB0C5 /* b2PulleyJoint.cpp in Sources */,

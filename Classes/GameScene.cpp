@@ -21,21 +21,22 @@ bool GameScene::init()
 		CC_SAFE_DELETE(touchLayer);
 	}
 	
-	this->addChild(touchLayer, 2);
+	this->addChild(touchLayer, 10);
     
-    /*
-    playLayer = new GameScenePlayLayer();   //º”‘ÿ»ÀŒÔ
+    
+    displayLayer = new GameSceneDisplayLayer();   //º”‘ÿ»ÀŒÔ
 	
-	if(playLayer && playLayer->init()){
+	if(displayLayer && displayLayer->init())
+    {
 		
-		playLayer->autorelease();
+		displayLayer->autorelease();
 	}else{
 		
-		CC_SAFE_DELETE(playLayer);
+		CC_SAFE_DELETE(displayLayer);
 	}
 	
-    this->addChild(playLayer, 0);
-	*/
+    this->addChild(displayLayer, 0);
+	
     return true;
 }
 

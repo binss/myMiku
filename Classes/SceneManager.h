@@ -19,6 +19,7 @@ public:
     //以下是场景枚举
     enum EnumSceneType {
         en_MainScene,  //初音主画面
+        en_GameSongSelectScene, //游戏歌曲选择画面
         en_GameScene   //游戏界面
 		
     };

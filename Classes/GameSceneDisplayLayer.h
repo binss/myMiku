@@ -9,6 +9,26 @@
 #ifndef __myMiku__GameSceneDisplayLayer__
 #define __myMiku__GameSceneDisplayLayer__
 
-#include <iostream>
+#include "cocos2d.h"
+#include "cocos-ext.h"
+
+using namespace std;
+USING_NS_CC;
+using namespace extension;
+
+class GameSceneDisplayLayer : public cocos2d::CCLayer
+{
+public:
+    virtual bool init();
+    CREATE_FUNC(GameSceneDisplayLayer);
+    void turnLeft();
+    void turnRight();
+    void setCombo();
+
+
+private:
+    CCArmature *armature;
+    
+};
 
 #endif /* defined(__myMiku__GameSceneDisplayLayer__) */

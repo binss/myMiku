@@ -35,7 +35,8 @@ private:
     void menu1Callback(CCNode *pSender);
     void menu2Callback(CCNode *pSender);
     void menu3Callback(CCNode *pSender);
-    
+    void menu4Callback(CCNode *pSender);
+
 
 };
 
