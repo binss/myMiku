@@ -27,8 +27,8 @@ bool GameSceneDisplayLayer::init()
     comboTag->setPosition(ccp(225,850));
     this->addChild(comboTag,4);
     
-    CCLabelAtlas* comboCount=CCLabelAtlas::create("0123456789","game/number.png",40,50,'0');
-    comboCount->setString("500");
+    comboCount=CCLabelAtlas::create("0123456789","game/number.png",40,50,'0');
+    comboCount->setString("0");
     comboCount->setPosition(ccp(360,822));
 
     this->addChild(comboCount,4);
@@ -73,4 +73,10 @@ void GameSceneDisplayLayer::turnLeft()
 void GameSceneDisplayLayer::turnRight()
 {
     armature->getAnimation()->playWithIndex(1,1,15,0);   //第三个参数越小越快
+}
+
+void GameSceneDisplayLayer::setCombo(int combo)
+{
+    CCString *temp = CCString::createWithFormat("%i",combo);
+    comboCount->setString(temp->getCString());
 }

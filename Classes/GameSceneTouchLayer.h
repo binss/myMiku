@@ -29,19 +29,7 @@ class GameSceneTouchLayer : public cocos2d::CCLayer
         safe,
         sad
     };
-    
-    enum click
-    {
-        leftClick = 0,
-        rightClick
-    };
-    
-    
-    
-    enum musicList
-    {
-        deepSeaGirl = 0
-    };
+
 public:
     
     bool init();
@@ -67,7 +55,10 @@ private:
     void setSadSign(CCObject *object);
     void start(CCNode *pSender);
     void finish(CCNode *pSender);
+    void setSongInfo(CCObject *pSender);
 
+    
+    
 	//void rubbishCollection(CCObject *object);
     //void gameOver();
 	
@@ -88,12 +79,14 @@ private:
     CCSprite *rightSafeSign;
     CCSprite *rightSadSign;
 
+    int songNum;
     int line;
     const char * file;
     int coolNum;
     int fineNum;
     int safeNum;
     int sadNum;
+    int comboNum;
 
     
     CREATE_FUNC(GameSceneTouchLayer);

@@ -8,7 +8,8 @@
 
 #include "AudioPlayer.h"
 
-const static char* musicList[1] = { "music/deepSeaGirl.mp3"};
+const static char* musicList[4] = { "music/deepSeaGirl.mp3","music/hazyMoon.mp3","music/senBenZakura.mp3","music/meltDown.mp3"};
+const static char* auditionList[4] = { "audition/A_deepSeaGirl.mp3","audition/A_hazyMoon.mp3","audition/A_senBenZakura.mp3","audition/A_meltDown.mp3"};
 
 static AudioPlayer* instance = NULL;
 AudioPlayer* AudioPlayer::sharedAudio()
@@ -24,9 +25,8 @@ AudioPlayer* AudioPlayer::sharedAudio()
 bool AudioPlayer::init()
 {
     CCLog("AudioPlayer init.");
-    
-    //SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic("music_background.mp3");          //预加载
-    //SimpleAudioEngine::sharedEngine()->playBackgroundMusic("music_background.mp3", true);
+    for(int i=0;i<4;i++)
+        SimpleAudioEngine::sharedEngine()->preloadBackgroundMusic(auditionList[i]);          //预加载
     
     SimpleAudioEngine::sharedEngine()->preloadEffect("effects/leftCycleEffect.caf");
     SimpleAudioEngine::sharedEngine()->preloadEffect("effects/rightCycleEffect.caf");
@@ -77,6 +77,16 @@ void AudioPlayer::playMusic(int music)
 {
     SimpleAudioEngine::sharedEngine()->playBackgroundMusic(musicList[music]);
     CCLOG("play");
+}
+
+void AudioPlayer::playAudition(int music)
+{
+    SimpleAudioEngine::sharedEngine()->playBackgroundMusic(auditionList[music], true);
+}
+
+void AudioPlayer::stopAllMusic()
+{
+    SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
 }
 
 void AudioPlayer::setEffectPlay(bool play)

@@ -7,6 +7,7 @@
 //
 
 #include "GameSceneTouchLayer.h"
+#include "toolClasses/StringUtil.h"
 #include "toolClasses/CsvUtil.h"
 #include "AudioPlayer.h"
 #include "GameScene.h"
@@ -14,12 +15,16 @@
 
 bool GameSceneTouchLayer::init()
 {
+    //监视GameSongSelectScene发来的歌曲信息
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(GameSceneTouchLayer::setSongInfo),"SongNum", NULL);
+    
+    
 	leftArray = CCArray::create();
 	leftArray->retain();
     rightArray = CCArray::create();
 	rightArray->retain();
     
-    AudioPlayer::sharedAudio();
+//    AudioPlayer::sharedAudio();
    
 	this->setTouchEnabled(true);
 	this->setTouchMode(kCCTouchesAllAtOnce);            //多点触摸
@@ -91,9 +96,6 @@ bool GameSceneTouchLayer::init()
 	//this->schedule(schedule_selector(GameScenePlayLayer::changeSeason),10);
 	//this->scheduleUpdate();
     
-	//SimpleAudioEngine::sharedEngine()->playBackgroundMusic("sound/background.mp3", true);
-	//SimpleAudioEngine::sharedEngine()->setBackgroundMusicVolume(0.5f);
-    CsvUtil::sharedCsvUtil()->loadFile("notation/test.csv");
    
     //createElement(1.0f);
     //file = "notation/test.csv";
@@ -104,7 +106,6 @@ bool GameSceneTouchLayer::init()
 
 void GameSceneTouchLayer::menuCallback(CCNode *pSender)
 {
-    AudioPlayer::sharedAudio()->preLoadMusic(deepSeaGirl);
     this->scheduleOnce(schedule_selector(GameSceneTouchLayer::start),3.0f);
     
 }
@@ -112,12 +113,13 @@ void GameSceneTouchLayer::menuCallback(CCNode *pSender)
 void GameSceneTouchLayer::start(CCNode *pSender)
 {
     float musicTime = 215.0f;
-    AudioPlayer::sharedAudio()->playMusic(deepSeaGirl);
+    AudioPlayer::sharedAudio()->playMusic(songNum);
     this->schedule(schedule_selector(GameSceneTouchLayer::createElement),1.0f);
     coolNum = 0;
     fineNum = 0;
     safeNum = 0;
     sadNum = 0;
+    comboNum = 0;
     this->scheduleOnce(schedule_selector(GameSceneTouchLayer::finish),musicTime);
 }
 
@@ -181,7 +183,10 @@ void GameSceneTouchLayer::setSadSign(CCObject *object)
         setSign(true, sad);
     if (sprite->getTag() == 2 )
         setSign(false, sad);
+    
+    comboNum = 0;
     sadNum ++;
+    GameScene::shareGameScene()->displayLayer->setCombo(comboNum);
 }
 
 void GameSceneTouchLayer::update(float dt)
@@ -299,18 +304,22 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
                         if( y >= 90 && y <= 130 )
                         {
                             setSign(true, cool);
+                            comboNum ++;
                             coolNum ++;
                         }
                         else if(( y > 130 && y <= 170) || ( y >= 50 && y < 90 ))
                         {
                             setSign(true, fine);
+                            comboNum ++;
                             fineNum ++;
                         }
                         else if(( y > 170 && y <= 200) || ( y >= 20 && y < 50))
                         {
                             setSign(true, safe);
+                            comboNum = 0;
                             safeNum ++;
                         }
+                        GameScene::shareGameScene()->displayLayer->setCombo(comboNum);
                         rubbishCollection(object);
                         CCParticleSystem * particle=CCParticleExplosion::create();
                         particle->setPosition(ccp(x,y));
@@ -335,19 +344,22 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
                         if( y >= 90 && y <= 130 )
                         {
                             setSign(false, cool);
+                            comboNum ++;
                             coolNum ++;
                         }
                         else if(( y > 130 && y <= 170) || ( y >= 50 && y < 90 ))
                         {
                             setSign(false, fine);
+                            comboNum ++;
                             fineNum ++;
                         }
                         else if(( y > 170 && y <= 200) || ( y >= 20 && y < 50))
                         {
                             setSign(false, safe);
+                            comboNum = 0;
                             safeNum ++;
                         }
-                        
+                        GameScene::shareGameScene()->displayLayer->setCombo(comboNum);
                         rubbishCollection(object);
                         CCParticleSystem * particle=CCParticleExplosion::create();
                         particle->setPosition(ccp(x,y));
@@ -396,4 +408,16 @@ void GameSceneTouchLayer::ccTouchesMoved(CCSet *pTouches, CCEvent *pEvent)
 void GameSceneTouchLayer::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 {
     
+}
+
+void GameSceneTouchLayer::setSongInfo(CCObject *pSender)
+{
+    CCArray *dataList = (CCArray *)pSender;
+    songNum = ((CCString*)dataList->objectAtIndex(0))->intValue();
+    const char * csvPath = ((CCString*)dataList->objectAtIndex(1))->getCString();
+    CCLog("setSongInfo: %i , %s",songNum,csvPath);
+    CsvUtil::sharedCsvUtil()->loadFile(csvPath);
+    AudioPlayer::sharedAudio()->preLoadMusic(songNum);
+    dataList->release();            //释放数组
+    //考虑在此取消消息订阅？
 }

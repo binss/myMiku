@@ -50,7 +50,7 @@ void SceneManager::changeScene( EnumSceneType enScenType )
             break;
         case  en_GameScene:          //游戏界面
         {
-            CCDirector::sharedDirector()->replaceScene(CCTransitionProgressHorizontal::create(1.0f, GameScene::newGameScene()));
+            CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(1.0f, GameScene::newGameScene()));
             break;
 
         }

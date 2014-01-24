@@ -23,11 +23,12 @@ public:
     CREATE_FUNC(GameSceneDisplayLayer);
     void turnLeft();
     void turnRight();
-    void setCombo();
+    void setCombo(int combo);
 
 
 private:
     CCArmature *armature;
+    CCLabelAtlas* comboCount;
     
 };
 

@@ -17,18 +17,27 @@
 USING_NS_CC;
 using namespace CocosDenshion;
 
+enum effects
+{
+    leftClick = 0,
+    rightClick
+};
+
+enum musicList
+{
+    deepSeaGirl = 0,
+    hazyMoon,
+    senBenZakura,
+    meltDown
+};
+
+
 class AudioPlayer : public CCObject
 {
-    enum effects{
-        leftClick = 0,
-        rightClick
-    };
-    
-    
-    enum music
-    {
-        deepSeaGirl = 0,            //深海少女，3 min 35s = 215s
-    };
+//    enum music
+//    {
+//        deepSeaGirl = 0,            //深海少女，3 min 35s = 215s
+//    };
     
 private:
     bool PlayingEffect;
@@ -43,6 +52,8 @@ public:
     static AudioPlayer* sharedAudio();
     void playEffect(int index);
     void playMusic(int music);
+    void playAudition(int music);
+    void stopAllMusic();
     void preLoadMusic(int music);
     void setEffectPlay(bool play);
     void setBackgroundMusicPlay(bool play);

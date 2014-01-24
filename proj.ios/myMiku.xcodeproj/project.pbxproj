@@ -170,9 +170,14 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		3406F70A1892912500872E98 /* game in Resources */ = {isa = PBXBuildFile; fileRef = 3406F7091892912500872E98 /* game */; };
+		3406F7101892930D00872E98 /* songList in Resources */ = {isa = PBXBuildFile; fileRef = 3406F70F1892930D00872E98 /* songList */; };
+		3406F7131892A47E00872E98 /* audition in Resources */ = {isa = PBXBuildFile; fileRef = 3406F7121892A47E00872E98 /* audition */; };
 		340778661886CD7600B232D2 /* bottonLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340778641886CD7600B232D2 /* bottonLayer.cpp */; };
 		340778691886CDC600B232D2 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340778671886CDC600B232D2 /* MainScene.cpp */; };
 		3407786C1886F50700B232D2 /* buttons in Resources */ = {isa = PBXBuildFile; fileRef = 3407786B1886F50700B232D2 /* buttons */; };
+		341C4D0F1892047F00374599 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 341C4D0E1892047F00374599 /* fonts */; };
+		341C4D15189236D200374599 /* SongData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341C4D13189236D200374599 /* SongData.cpp */; };
 		3420F0CA188CBE8E008EE6E2 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0C8188CBE8E008EE6E2 /* SceneManager.cpp */; };
 		3420F0CE188CE0DC008EE6E2 /* StringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0CC188CE0DC008EE6E2 /* StringUtil.cpp */; };
 		3420F0D1188CE477008EE6E2 /* FileLoadUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0CF188CE477008EE6E2 /* FileLoadUtil.cpp */; };
@@ -184,7 +189,6 @@
 		342923D9188FE3E50040960C /* music in Resources */ = {isa = PBXBuildFile; fileRef = 342923D8188FE3E50040960C /* music */; };
 		342EE00A188A74E200D69D7E /* QuestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 342EE009188A74E200D69D7E /* QuestionBox.m */; };
 		343DFD241891698D006BED99 /* GameSongSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343DFD221891698D006BED99 /* GameSongSelectScene.cpp */; };
-		346E84B7188CFF3000F2D7D5 /* game in Resources */ = {isa = PBXBuildFile; fileRef = 346E84B6188CFF2F00F2D7D5 /* game */; };
 		346E84BA188D016C00F2D7D5 /* CsvUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 346E84B8188D016C00F2D7D5 /* CsvUtil.cpp */; };
 		347EC9651890F3730025463C /* animation in Resources */ = {isa = PBXBuildFile; fileRef = 347EC9641890F3730025463C /* animation */; };
 		34E1EC5618867B2A00CBE621 /* miku.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5318867B2A00CBE621 /* miku.ExportJson */; };
@@ -610,11 +614,17 @@
 		1D6058910D05DD3D006BFB54 /* myMiku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myMiku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3406F7091892912500872E98 /* game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = game; sourceTree = "<group>"; };
+		3406F70F1892930D00872E98 /* songList */ = {isa = PBXFileReference; lastKnownFileType = folder; path = songList; sourceTree = "<group>"; };
+		3406F7121892A47E00872E98 /* audition */ = {isa = PBXFileReference; lastKnownFileType = folder; path = audition; sourceTree = "<group>"; };
 		340778641886CD7600B232D2 /* bottonLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = bottonLayer.cpp; path = ../Classes/bottonLayer.cpp; sourceTree = "<group>"; };
 		340778651886CD7600B232D2 /* bottonLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bottonLayer.h; path = ../Classes/bottonLayer.h; sourceTree = "<group>"; };
 		340778671886CDC600B232D2 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = ../Classes/MainScene.cpp; sourceTree = "<group>"; };
 		340778681886CDC600B232D2 /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = ../Classes/MainScene.h; sourceTree = "<group>"; };
 		3407786B1886F50700B232D2 /* buttons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = buttons; sourceTree = "<group>"; };
+		341C4D0E1892047F00374599 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		341C4D13189236D200374599 /* SongData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SongData.cpp; sourceTree = "<group>"; };
+		341C4D14189236D200374599 /* SongData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongData.h; sourceTree = "<group>"; };
 		3420F0C8188CBE8E008EE6E2 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneManager.cpp; path = ../Classes/SceneManager.cpp; sourceTree = "<group>"; };
 		3420F0C9188CBE8E008EE6E2 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneManager.h; path = ../Classes/SceneManager.h; sourceTree = "<group>"; };
 		3420F0CC188CE0DC008EE6E2 /* StringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtil.cpp; sourceTree = "<group>"; };
@@ -635,7 +645,6 @@
 		342EE009188A74E200D69D7E /* QuestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionBox.m; path = ../Classes/QuestionBox/QuestionBox.m; sourceTree = "<group>"; };
 		343DFD221891698D006BED99 /* GameSongSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSongSelectScene.cpp; path = ../Classes/GameSongSelectScene.cpp; sourceTree = "<group>"; };
 		343DFD231891698D006BED99 /* GameSongSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSongSelectScene.h; path = ../Classes/GameSongSelectScene.h; sourceTree = "<group>"; };
-		346E84B6188CFF2F00F2D7D5 /* game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = game; sourceTree = "<group>"; };
 		346E84B8188D016C00F2D7D5 /* CsvUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CsvUtil.cpp; sourceTree = "<group>"; };
 		346E84B9188D016C00F2D7D5 /* CsvUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsvUtil.h; sourceTree = "<group>"; };
 		347EC9641890F3730025463C /* animation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = animation; sourceTree = "<group>"; };
@@ -1322,8 +1331,10 @@
 				3420F0D8188CE971008EE6E2 /* GameSceneDisplayLayer.cpp */,
 				342923D3188FC9C00040960C /* AudioPlayer.cpp */,
 				342923D4188FC9C00040960C /* AudioPlayer.h */,
-				343DFD221891698D006BED99 /* GameSongSelectScene.cpp */,
 				343DFD231891698D006BED99 /* GameSongSelectScene.h */,
+				343DFD221891698D006BED99 /* GameSongSelectScene.cpp */,
+				341C4D14189236D200374599 /* SongData.h */,
+				341C4D13189236D200374599 /* SongData.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1801,11 +1812,14 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3406F7121892A47E00872E98 /* audition */,
+				3406F70F1892930D00872E98 /* songList */,
+				3406F7091892912500872E98 /* game */,
+				341C4D0E1892047F00374599 /* fonts */,
 				347EC9641890F3730025463C /* animation */,
 				342923D8188FE3E50040960C /* music */,
 				342923D6188FD20A0040960C /* effects */,
 				34F05C57188D4B85004A3909 /* notation */,
-				346E84B6188CFF2F00F2D7D5 /* game */,
 				3407786B1886F50700B232D2 /* buttons */,
 				34E1EC5318867B2A00CBE621 /* miku.ExportJson */,
 				34E1EC5418867B2A00CBE621 /* miku0.plist */,
@@ -1897,22 +1911,25 @@
 				7855E0E1153FEF240059DD9A /* Default.png in Resources */,
 				347EC9651890F3730025463C /* animation in Resources */,
 				D4EF949A15BD2D8B00D803EB /* Icon-57.png in Resources */,
+				341C4D0F1892047F00374599 /* fonts in Resources */,
 				D4EF949C15BD2D8E00D803EB /* Icon-114.png in Resources */,
 				34E1EC5618867B2A00CBE621 /* miku.ExportJson in Resources */,
 				D4EF949E15BD2D9600D803EB /* Icon-72.png in Resources */,
 				D4EF94A015BD2D9800D803EB /* Icon-144.png in Resources */,
 				34F05C58188D4B85004A3909 /* notation in Resources */,
 				3407786C1886F50700B232D2 /* buttons in Resources */,
+				3406F7131892A47E00872E98 /* audition in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				3406F70A1892912500872E98 /* game in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				34E1EC5818867B2A00CBE621 /* miku0.png in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				34E1EC5718867B2A00CBE621 /* miku0.plist in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				342923D9188FE3E50040960C /* music in Resources */,
+				3406F7101892930D00872E98 /* songList in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				342923D7188FD20A0040960C /* effects in Resources */,
-				346E84B7188CFF3000F2D7D5 /* game in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2120,6 +2137,7 @@
 				379BB9AC17F03F3700829B88 /* CCUtilMath.cpp in Sources */,
 				379BB9AD17F03F3700829B88 /* CCComAttribute.cpp in Sources */,
 				379BB9AE17F03F3700829B88 /* CCComAudio.cpp in Sources */,
+				341C4D15189236D200374599 /* SongData.cpp in Sources */,
 				379BB9AF17F03F3700829B88 /* CCComController.cpp in Sources */,
 				379BB9B017F03F3700829B88 /* CCComRender.cpp in Sources */,
 				379BB9B117F03F3700829B88 /* CCInputDelegate.cpp in Sources */,
