@@ -195,6 +195,10 @@
 		34E1EC5718867B2A00CBE621 /* miku0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5418867B2A00CBE621 /* miku0.plist */; };
 		34E1EC5818867B2A00CBE621 /* miku0.png in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5518867B2A00CBE621 /* miku0.png */; };
 		34F05C58188D4B85004A3909 /* notation in Resources */ = {isa = PBXBuildFile; fileRef = 34F05C57188D4B85004A3909 /* notation */; };
+		34F7580B1893E10C00269243 /* CounterDownLabel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F758091893E10C00269243 /* CounterDownLabel.cpp */; };
+		34F7580E1893E49500269243 /* CounterDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7580C1893E49500269243 /* CounterDown.cpp */; };
+		34FAF47318935D8F0074F3A4 /* GameScenePauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF47118935D8F0074F3A4 /* GameScenePauseLayer.cpp */; };
+		34FAF47618935E000074F3A4 /* GameSceneResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF47418935E000074F3A4 /* GameSceneResultLayer.cpp */; };
 		375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BB1868411B0024609E /* ObjectFactory.cpp */; };
 		375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BD1868411B0024609E /* TriggerBase.cpp */; };
 		375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BF1868411B0024609E /* TriggerMng.cpp */; };
@@ -652,6 +656,14 @@
 		34E1EC5418867B2A00CBE621 /* miku0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = miku0.plist; sourceTree = "<group>"; };
 		34E1EC5518867B2A00CBE621 /* miku0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = miku0.png; sourceTree = "<group>"; };
 		34F05C57188D4B85004A3909 /* notation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = notation; sourceTree = "<group>"; };
+		34F758091893E10C00269243 /* CounterDownLabel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CounterDownLabel.cpp; sourceTree = "<group>"; };
+		34F7580A1893E10C00269243 /* CounterDownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CounterDownLabel.h; sourceTree = "<group>"; };
+		34F7580C1893E49500269243 /* CounterDown.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CounterDown.cpp; sourceTree = "<group>"; };
+		34F7580D1893E49500269243 /* CounterDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CounterDown.h; sourceTree = "<group>"; };
+		34FAF47118935D8F0074F3A4 /* GameScenePauseLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScenePauseLayer.cpp; path = ../Classes/GameScenePauseLayer.cpp; sourceTree = "<group>"; };
+		34FAF47218935D8F0074F3A4 /* GameScenePauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScenePauseLayer.h; path = ../Classes/GameScenePauseLayer.h; sourceTree = "<group>"; };
+		34FAF47418935E000074F3A4 /* GameSceneResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSceneResultLayer.cpp; sourceTree = "<group>"; };
+		34FAF47518935E000074F3A4 /* GameSceneResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneResultLayer.h; sourceTree = "<group>"; };
 		373B911F18788FB000198F86 /* CCComBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCComBase.h; sourceTree = "<group>"; };
 		375BD4BB1868411B0024609E /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFactory.cpp; sourceTree = "<group>"; };
 		375BD4BC1868411B0024609E /* ObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
@@ -1329,12 +1341,16 @@
 				3420F0D5188CE960008EE6E2 /* GameSceneTouchLayer.cpp */,
 				3420F0D9188CE971008EE6E2 /* GameSceneDisplayLayer.h */,
 				3420F0D8188CE971008EE6E2 /* GameSceneDisplayLayer.cpp */,
-				342923D3188FC9C00040960C /* AudioPlayer.cpp */,
 				342923D4188FC9C00040960C /* AudioPlayer.h */,
+				342923D3188FC9C00040960C /* AudioPlayer.cpp */,
 				343DFD231891698D006BED99 /* GameSongSelectScene.h */,
 				343DFD221891698D006BED99 /* GameSongSelectScene.cpp */,
 				341C4D14189236D200374599 /* SongData.h */,
 				341C4D13189236D200374599 /* SongData.cpp */,
+				34FAF47218935D8F0074F3A4 /* GameScenePauseLayer.h */,
+				34FAF47118935D8F0074F3A4 /* GameScenePauseLayer.cpp */,
+				34FAF47518935E000074F3A4 /* GameSceneResultLayer.h */,
+				34FAF47418935E000074F3A4 /* GameSceneResultLayer.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1486,6 +1502,10 @@
 				3420F0D0188CE477008EE6E2 /* FileLoadUtil.h */,
 				346E84B8188D016C00F2D7D5 /* CsvUtil.cpp */,
 				346E84B9188D016C00F2D7D5 /* CsvUtil.h */,
+				34F7580A1893E10C00269243 /* CounterDownLabel.h */,
+				34F758091893E10C00269243 /* CounterDownLabel.cpp */,
+				34F7580D1893E49500269243 /* CounterDown.h */,
+				34F7580C1893E49500269243 /* CounterDown.cpp */,
 			);
 			name = toolClasses;
 			path = ../Classes/toolClasses;
@@ -2015,6 +2035,7 @@
 				346E84BA188D016C00F2D7D5 /* CsvUtil.cpp in Sources */,
 				3420F0D4188CE785008EE6E2 /* GameScene.cpp in Sources */,
 				15A3D9A91682F7F9002FB0C5 /* cpPolyShape.c in Sources */,
+				34F7580B1893E10C00269243 /* CounterDownLabel.cpp in Sources */,
 				15A3D9AA1682F7F9002FB0C5 /* cpShape.c in Sources */,
 				15A3D9AB1682F7F9002FB0C5 /* cpSpace.c in Sources */,
 				15A3D9AC1682F7F9002FB0C5 /* cpSpaceComponent.c in Sources */,
@@ -2048,6 +2069,7 @@
 				15A3DA411682F826002FB0C5 /* CCMenuItemLoader.cpp in Sources */,
 				15A3DA421682F826002FB0C5 /* CCNode+CCBRelativePositioning.cpp in Sources */,
 				15A3DA431682F826002FB0C5 /* CCNodeLoader.cpp in Sources */,
+				34F7580E1893E49500269243 /* CounterDown.cpp in Sources */,
 				15A3DA441682F826002FB0C5 /* CCNodeLoaderLibrary.cpp in Sources */,
 				15A3DA451682F826002FB0C5 /* CCParticleSystemQuadLoader.cpp in Sources */,
 				15A3DA461682F826002FB0C5 /* CCScale9SpriteLoader.cpp in Sources */,
@@ -2117,6 +2139,7 @@
 				375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */,
 				1A9CE8781765A12C000E3062 /* AssetsManager.cpp in Sources */,
 				379BB99A17F03F3700829B88 /* CCArmatureAnimation.cpp in Sources */,
+				34FAF47318935D8F0074F3A4 /* GameScenePauseLayer.cpp in Sources */,
 				379BB99B17F03F3700829B88 /* CCProcessBase.cpp in Sources */,
 				379BB99C17F03F3700829B88 /* CCTween.cpp in Sources */,
 				379BB99D17F03F3700829B88 /* CCArmature.cpp in Sources */,
@@ -2145,6 +2168,7 @@
 				379BB9B417F03F3700829B88 /* UILayout.cpp in Sources */,
 				379BB9B617F03F3700829B88 /* UILayoutParameter.cpp in Sources */,
 				379BB9B717F03F3700829B88 /* UILayoutDefine.cpp in Sources */,
+				34FAF47618935E000074F3A4 /* GameSceneResultLayer.cpp in Sources */,
 				379BB9B817F03F3700829B88 /* CocosGUI.cpp in Sources */,
 				379BB9B917F03F3700829B88 /* UIHelper.cpp in Sources */,
 				379BB9BD17F03F3700829B88 /* UIListView.cpp in Sources */,

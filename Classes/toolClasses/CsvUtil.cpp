@@ -4,7 +4,8 @@
 //
 //  Created by bin on 14-1-20.
 //
-//
+//  用于Csv文件的读取
+
 
 #include "CsvUtil.h"
 #include "FileLoadUtil.h"

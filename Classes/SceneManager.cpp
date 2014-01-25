@@ -41,10 +41,16 @@ void SceneManager::changeScene( EnumSceneType enScenType )
 {
     CCScene* pScene = NULL;
     
-    switch (enScenType) {
+    switch (enScenType)
+    {
         case en_MainScene:          //初音主画面
-            pScene = MainScene::scene();
+        {
+            if(pScene == NULL)
+                pScene = MainScene::scene();
+            else
+                CCDirector::sharedDirector()->replaceScene(CCTransitionProgressHorizontal::create(1.0f, MainScene::scene()));
             break;
+        }
         case en_GameSongSelectScene:
             CCDirector::sharedDirector()->replaceScene(CCTransitionProgressHorizontal::create(1.0f, GameSongSelectScene::scene()));
             break;

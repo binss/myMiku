@@ -165,7 +165,7 @@ void GameSongSelectScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEven
             AudioPlayer::sharedAudio()->playEffect(leftClick);              //击打音效
             SceneManager::sharedSceneManager()->changeScene(SceneManager::en_GameScene);
             sendSongMessage();
-            backgroundCache->removeUnusedSpriteFrames();
+            //backgroundCache->removeUnusedSpriteFrames();
         }
         else
         {
@@ -219,11 +219,10 @@ void GameSongSelectScene::setSongData(int num)
 void GameSongSelectScene::sendSongMessage()
 {
     CCArray *data = CCArray::create();
-    data->retain();
+    CC_SAFE_RETAIN(data);
     CCString *data1 = CCString::createWithFormat("%i",detail->songNumber);
     CCString *data2 = CCString::createWithFormat("%s",detail->csvPath);
     data->addObject(data1);
     data->addObject(data2);
-    //CCString *data = CCString::createWithFormat("%i,%s",detail->songNumber,detail->csvPath);
     CCNotificationCenter::sharedNotificationCenter()->postNotification("SongNum", data);
 }

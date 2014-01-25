@@ -76,12 +76,21 @@ void AudioPlayer::preLoadMusic(int music)
 void AudioPlayer::playMusic(int music)
 {
     SimpleAudioEngine::sharedEngine()->playBackgroundMusic(musicList[music]);
-    CCLOG("play");
 }
 
 void AudioPlayer::playAudition(int music)
 {
     SimpleAudioEngine::sharedEngine()->playBackgroundMusic(auditionList[music], true);
+}
+
+void AudioPlayer::pauseMusic()
+{
+    SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+}
+
+void AudioPlayer::resumeMusic()
+{
+    SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
 }
 
 void AudioPlayer::stopAllMusic()

@@ -11,11 +11,12 @@
 #include "toolClasses/CsvUtil.h"
 #include "AudioPlayer.h"
 #include "GameScene.h"
-
+#include "GameScenePauseLayer.h"
+#include "GameSceneResultLayer.h"
 
 bool GameSceneTouchLayer::init()
 {
-    //监视GameSongSelectScene发来的歌曲信息
+    //添加观察者，监视GameSongSelectScene发来的歌曲信息
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(GameSceneTouchLayer::setSongInfo),"SongNum", NULL);
     
     
@@ -24,7 +25,7 @@ bool GameSceneTouchLayer::init()
     rightArray = CCArray::create();
 	rightArray->retain();
     
-//    AudioPlayer::sharedAudio();
+
    
 	this->setTouchEnabled(true);
 	this->setTouchMode(kCCTouchesAllAtOnce);            //多点触摸
@@ -74,58 +75,115 @@ bool GameSceneTouchLayer::init()
     
     this->addChild(leftCycle);
     this->addChild(rightCycle);
-    //this->scheduleUpdate();
     
-    
-    CCLabelTTF* pLabel = CCLabelTTF::create("test", "Arial", 50);//参数分别是：按钮要显示的文字，字体，字号
-	CCMenuItemLabel* pBtn = CCMenuItemLabel::create(pLabel, this,menu_selector(GameSceneTouchLayer::menuCallback)) ;
-	pBtn->setPosition(ccp(240, 800));
-	CCMenu* pMenu = CCMenu::create(pBtn, NULL);
-	pMenu->setPosition(CCPointZero);
-	this->addChild(pMenu);
+    //菜单按钮
+    CCSprite *sprite1 = CCSprite::create("game/pause_button1.png");
+    CCSprite *sprite2 = CCSprite::create("game/pause_button2.png");
+    CCSprite *sprite3 = CCSprite::create("game/help_button1.png");
+    CCSprite *sprite4 = CCSprite::create("game/help_button2.png");
 
+    CCMenuItemSprite *menuItem1 = CCMenuItemSprite::create(sprite1, sprite2, this, menu_selector(GameSceneTouchLayer::pauseButtonCallback));
+    menuItem1->setPosition(ccpAdd(ccp(0,10),ccp(40,35)));
+    CCMenuItemSprite *menuItem2 = CCMenuItemSprite::create(sprite3, sprite4, this, menu_selector(GameSceneTouchLayer::helpButtonCallback));
+    menuItem2->setPosition(ccpAdd(ccp(100,0), ccp(26,40)));
     
-    
-    this->schedule(schedule_selector(GameSceneTouchLayer::updateCycle),0.2f);
-    
+    menu = CCMenu::create(menuItem1, menuItem2, NULL);
+    menu->setPosition(ccp(470,860));
+    this->addChild(menu);
+
     //backgroundInit();
     
-    //score = 0;
-    
-	//this->schedule(schedule_selector(GameScenePlayLayer::createCoin),0.8f);
-	//this->schedule(schedule_selector(GameScenePlayLayer::changeSeason),10);
+
 	//this->scheduleUpdate();
     
-   
-    //createElement(1.0f);
-    //file = "notation/test.csv";
+    csvPath = new char[50];
+
     line = 1;
-    //createElement(0.1f);
+
     return true;
 }
 
-void GameSceneTouchLayer::menuCallback(CCNode *pSender)
+void GameSceneTouchLayer::pauseButtonCallback(cocos2d::CCNode *pSender)
 {
-    this->scheduleOnce(schedule_selector(GameSceneTouchLayer::start),3.0f);
+    GameScenePauseLayer* pauseLayer = new GameScenePauseLayer();
+    if(pauseLayer && pauseLayer->init())
+    {
+        pauseLayer->autorelease();
+    }
+    else
+    {
+        CC_SAFE_DELETE(pauseLayer);
+    }
     
+    pauseLayer->setAnchorPoint(ccp(0, 0));
+    pauseLayer->setPosition(ccp(0,0));
+    
+    GameScene::shareGameScene()->addChild(pauseLayer,20);
+    CCDirector::sharedDirector()->pause();
+    AudioPlayer::sharedAudio()->pauseMusic();
+}
+
+
+void GameSceneTouchLayer::helpButtonCallback(cocos2d::CCNode *pSender)
+{
+    GameSceneResultLayer* resultLayer = new GameSceneResultLayer();
+    if(resultLayer && resultLayer->init())
+    {
+        resultLayer->autorelease();
+    }
+    else
+    {
+        CC_SAFE_DELETE(resultLayer);
+    }
+    
+    resultLayer->setAnchorPoint(ccp(0, 0));
+    resultLayer->setPosition(ccp(0,0));
+    resultLayer->setResult(100, 20, 33, 44, 55);
+    GameScene::shareGameScene()->addChild(resultLayer,20);
+    AudioPlayer::sharedAudio()->pauseMusic();
+}
+
+void GameSceneTouchLayer::ready()
+{
+    unschedule(schedule_selector(GameSceneTouchLayer::createElement));
+    unschedule(schedule_selector(GameSceneTouchLayer::updateCycle));
+    unschedule(schedule_selector(GameSceneTouchLayer::finish));
+    CCObject *obj;
+    CCARRAY_FOREACH(leftArray,obj)
+    {
+        CCSprite *object = (CCSprite*)obj;
+        rubbishCollection(object);
+    }
+    CCARRAY_FOREACH(rightArray,obj)
+    {
+        CCSprite *object = (CCSprite*)obj;
+        rubbishCollection(object);
+    }
+
+    CsvUtil::sharedCsvUtil()->loadFile(csvPath);
+    AudioPlayer::sharedAudio()->preLoadMusic(songNum);
+    this->scheduleOnce(schedule_selector(GameSceneTouchLayer::start),5.0f);
+    this->schedule(schedule_selector(GameSceneTouchLayer::updateCycle),0.2f);
+    coolNum = 0;
+    fineNum = 0;
+    safeNum = 0;
+    sadNum = 0;
+    comboNum = 0;
 }
 
 void GameSceneTouchLayer::start(CCNode *pSender)
 {
     float musicTime = 215.0f;
     AudioPlayer::sharedAudio()->playMusic(songNum);
+    CCLOG("play");
     this->schedule(schedule_selector(GameSceneTouchLayer::createElement),1.0f);
-    coolNum = 0;
-    fineNum = 0;
-    safeNum = 0;
-    sadNum = 0;
-    comboNum = 0;
     this->scheduleOnce(schedule_selector(GameSceneTouchLayer::finish),musicTime);
 }
 
 void GameSceneTouchLayer::finish(CCNode *pSender)
 {
     unschedule(schedule_selector(GameSceneTouchLayer::createElement));
+    unschedule(schedule_selector(GameSceneTouchLayer::updateCycle));
     CCLOG("cool: %i  fine: %i  safe: %i  sad: %i",coolNum,fineNum,safeNum,sadNum);
 }
 
@@ -287,7 +345,7 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
         CCTouch *pTouch = dynamic_cast<CCTouch *>(*itor);
         //获得游戏坐标位置
         CCPoint ccp = pTouch->getLocation();
-        printf("%f\t%f\n", ccp.x, ccp.y);
+//        printf("%f\t%f\n", ccp.x, ccp.y);
         if(ccp.y < 200)                                                         //只允许y值小于200的触摸生效
         {
             if(ccp.x > 40 && ccp.x < 180)                                       //只允许x值为40-180(leftCycle)的触摸生效
@@ -414,10 +472,9 @@ void GameSceneTouchLayer::setSongInfo(CCObject *pSender)
 {
     CCArray *dataList = (CCArray *)pSender;
     songNum = ((CCString*)dataList->objectAtIndex(0))->intValue();
-    const char * csvPath = ((CCString*)dataList->objectAtIndex(1))->getCString();
+    strncpy(csvPath,((CCString*)dataList->objectAtIndex(1))->getCString(),50);
     CCLog("setSongInfo: %i , %s",songNum,csvPath);
-    CsvUtil::sharedCsvUtil()->loadFile(csvPath);
-    AudioPlayer::sharedAudio()->preLoadMusic(songNum);
-    dataList->release();            //释放数组
-    //考虑在此取消消息订阅？
+    ready();
+    CC_SAFE_RELEASE_NULL(dataList);         //释放数组
+    CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, "SongNum");      //释放观察者
 }

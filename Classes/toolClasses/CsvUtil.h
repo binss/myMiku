@@ -4,7 +4,7 @@
 //
 //  Created by bin on 14-1-20.
 //
-//
+//  用于Csv文件的读取
 
 #ifndef __myMiku__CsvUtil__
 #define __myMiku__CsvUtil__

@@ -54,6 +54,8 @@ public:
     void playMusic(int music);
     void playAudition(int music);
     void stopAllMusic();
+    void pauseMusic();
+    void resumeMusic();
     void preLoadMusic(int music);
     void setEffectPlay(bool play);
     void setBackgroundMusicPlay(bool play);

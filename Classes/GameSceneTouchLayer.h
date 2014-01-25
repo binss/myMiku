@@ -33,11 +33,12 @@ class GameSceneTouchLayer : public cocos2d::CCLayer
 public:
     
     bool init();
-    
+    void ready();
+
     //void backgroundInit();
-    
-	CCArmature *chenxiaogeArmature;
-	CCPoint chenxiaogePosition;
+
+    CCMenu *menu;
+
     
 private:
     
@@ -47,15 +48,18 @@ private:
     virtual void ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent);
 	void createElement(float dt);
     void rubbishCollection(CCObject *object);
-    void menuCallback(CCNode *pSender);
+    
     void updateCycle(float dt);
     void setSign(bool side,int sign);
     void hideLeftSign(float dt);
     void hideRightSign(float dt);
     void setSadSign(CCObject *object);
+    
     void start(CCNode *pSender);
     void finish(CCNode *pSender);
     void setSongInfo(CCObject *pSender);
+    void pauseButtonCallback(CCNode *pSender);
+    void helpButtonCallback(CCNode *pSender);
 
     
     
@@ -80,13 +84,15 @@ private:
     CCSprite *rightSadSign;
 
     int songNum;
+    char * csvPath;
     int line;
-    const char * file;
+
     int coolNum;
     int fineNum;
     int safeNum;
     int sadNum;
     int comboNum;
+    
 
     
     CREATE_FUNC(GameSceneTouchLayer);
