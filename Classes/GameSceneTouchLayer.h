@@ -85,6 +85,7 @@ private:
 
     int songNum;
     char * csvPath;
+    float runningTime;
     int line;
 
     int coolNum;
@@ -92,6 +93,7 @@ private:
     int safeNum;
     int sadNum;
     int comboNum;
+    int maxComboNum;
     
 
     

@@ -28,6 +28,7 @@ public:
     virtual void ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
     virtual void ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent);
     void sendSongMessage();
+
     CCPoint touchBeginPos;
 
     SongData * detail;
@@ -45,11 +46,13 @@ public:
     CCSprite * nameFrame;
     
     int songNum;
+    char scoreBuffer[25];
     CCLabelTTF *leftWord;
     CCLabelTTF *rightWord;
     CCLabelTTF *name;
     CCLabelTTF *time;
     CCLabelTTF *difficulty;
+    CCLabelTTF *highScore;
     
     
 };

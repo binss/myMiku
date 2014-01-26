@@ -58,8 +58,8 @@ void GameScenePauseLayer::menu1Callback(cocos2d::CCNode *pSender)
 {
     GameScene::shareGameScene()->touchLayer->setTouchEnabled(true);
     GameScene::shareGameScene()->touchLayer->menu->setTouchEnabled(true);
-    CCDirector::sharedDirector()->resume();
     AudioPlayer::sharedAudio()->resumeMusic();
+    CCDirector::sharedDirector()->resume();
     this->removeFromParentAndCleanup(true);
 }
 

@@ -1,12 +1,12 @@
-#ifndef __HELLOWORLD_SCENE_H__
-#define __HELLOWORLD_SCENE_H__
+#ifndef __mikuLayer_SCENE_H__
+#define __mikuLayer_SCENE_H__
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
 USING_NS_CC;
 USING_NS_CC_EXT;
 
-class HelloWorld : public cocos2d::CCLayer
+class mikuLayer : public cocos2d::CCLayer
 {
 public:
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
@@ -24,11 +24,11 @@ public:
     
     
     // implement the "static node()" method manually
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(mikuLayer);
     virtual void registerWithTouchDispatcher();
     void checkQuestionBoxStatus(float dt);
     //void update(float dt);
     
 };
 
-#endif // __HELLOWORLD_SCENE_H__
+#endif // __mikuLayer_SCENE_H__

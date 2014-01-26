@@ -18,10 +18,18 @@ using namespace extension;
 
 class GameSceneResultLayer : public cocos2d::CCLayer
 {
+    enum song
+    {
+        deepSeaGirl = 0,
+        hazyMoon,
+        senBenZakura,
+        meltDown
+    };
+    
 public:
     virtual bool init();
     CREATE_FUNC(GameSceneResultLayer);
-    void setResult(int cool,int fine,int safe,int sad,int maxCombo);
+    void setResult(int songNum,int cool,int fine,int safe,int sad,int maxCombo);
     
     
 private:
@@ -38,6 +46,7 @@ private:
     char buffer [10];
     void displayScore(float dt);
     void showResult(int coolScore,int fineScore,int safeScore,int sadScore,int comboScore);
+    void writeSaveFile(int songNum,int score);
     CounterDown *counter;
 };
 

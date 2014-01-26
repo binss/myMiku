@@ -1,4 +1,4 @@
-#include "HelloWorldScene.h"
+#include "mikuLayer.h"
 #include "QuestionBox/QuestionBox.h"
 
 
@@ -6,7 +6,7 @@
 
 QuestionBox * box;
 
-bool HelloWorld::init()
+bool mikuLayer::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -27,7 +27,7 @@ bool HelloWorld::init()
                                         "CloseNormal.png",
                                         "CloseSelected.png",
                                         this,
-                                        menu_selector(HelloWorld::menuCloseCallback));
+                                        menu_selector(mikuLayer::menuCloseCallback));
     
 	pCloseItem->setPosition(ccp(origin.x + visibleSize.width - pCloseItem->getContentSize().width/2 ,
                                 origin.y + pCloseItem->getContentSize().height/2));
@@ -66,47 +66,47 @@ bool HelloWorld::init()
     return true;
 }
 
-void HelloWorld::registerWithTouchDispatcher()
+void mikuLayer::registerWithTouchDispatcher()
 {
     CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,30,true);
 }
 
-bool HelloWorld::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+bool mikuLayer::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
     {
         //CCMessageBox("this is content","title");
         box = [[QuestionBox alloc] init];
         [box hMessageBox:@"是否喂食？" title:@"喂食"];
-        schedule(schedule_selector(HelloWorld::checkQuestionBoxStatus), 0.1f);
+        schedule(schedule_selector(mikuLayer::checkQuestionBoxStatus), 0.1f);
     }
     return true;
 }
 
-void HelloWorld::checkQuestionBoxStatus(float dt)
+void mikuLayer::checkQuestionBoxStatus(float dt)
 {
     if(box.status != 0 )
     {
         CCLog("%i",box.status);
-        unschedule(schedule_selector(HelloWorld::checkQuestionBoxStatus));
+        unschedule(schedule_selector(mikuLayer::checkQuestionBoxStatus));
         [box release];
     }
 }
 
 
 /*
-void HelloWorld::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+void mikuLayer::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     CCLOG("yeah");
 }
 */
-void HelloWorld::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
+void mikuLayer::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
     
 }
 
 
-void HelloWorld::menuCloseCallback(CCObject* pSender)
+void mikuLayer::menuCloseCallback(CCObject* pSender)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT) || (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
 	CCMessageBox("You pressed the close button. Windows Store Apps do not implement a close button.","Alert");

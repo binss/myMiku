@@ -23,17 +23,17 @@ bool GameSceneDisplayLayer::init()
     background->setPosition(ccp(visibleSize.width / 2, visibleSize.height / 2));
     this->addChild(background,0);
     
-    CCSprite *comboTag = CCSprite::create("game/COMBO.png");
-    comboTag->setPosition(ccp(225,850));
+    comboTag = CCSprite::create("game/COMBO.png");
+    comboTag->setPosition(ccp(130,900));
     this->addChild(comboTag,4);
     
     comboCount=CCLabelAtlas::create("0123456789","game/number.png",40,50,'0');
     comboCount->setString("0");
-    comboCount->setPosition(ccp(360,822));
+    comboCount->setPosition(ccp(110,820));
 
     this->addChild(comboCount,4);
  
-    
+    setComboInvisible();
     
     
     //加载动画资源
@@ -77,6 +77,15 @@ void GameSceneDisplayLayer::turnRight()
 
 void GameSceneDisplayLayer::setCombo(int combo)
 {
+    comboTag->setVisible(true);
+    comboCount->setVisible(true);
     CCString *temp = CCString::createWithFormat("%i",combo);
     comboCount->setString(temp->getCString());
+    scheduleOnce(schedule_selector(GameSceneDisplayLayer::setComboInvisible), 0.3f);
+}
+
+void GameSceneDisplayLayer::setComboInvisible()
+{
+    comboTag->setVisible(false);
+    comboCount->setVisible(false);
 }

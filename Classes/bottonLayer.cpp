@@ -106,7 +106,8 @@ void bottonLayer::menu1Callback(cocos2d::CCNode *pSender)
 
 void bottonLayer::menu2Callback(cocos2d::CCNode *pSender)
 {
-    SceneManager::sharedSceneManager()->changeScene(SceneManager::en_GameScene);
+    SceneManager::sharedSceneManager()->changeScene(SceneManager::en_GameSongSelectScene);
+
 
 }
 
@@ -118,6 +119,5 @@ void bottonLayer::menu3Callback(cocos2d::CCNode *pSender)
 
 void bottonLayer::menu4Callback(cocos2d::CCNode *pSender)
 {
-    SceneManager::sharedSceneManager()->changeScene(SceneManager::en_GameSongSelectScene);
     
 }

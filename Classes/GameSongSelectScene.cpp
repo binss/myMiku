@@ -49,6 +49,7 @@ bool GameSongSelectScene::init()
         
         AudioPlayer::sharedAudio();
         
+                
         visibleSize = CCDirector::sharedDirector()->getVisibleSize();
         songNum = 0;
         detail = new SongData(songNum);
@@ -97,7 +98,8 @@ bool GameSongSelectScene::init()
         difficulty->setPosition(ccp(320,450));
         this->addChild(difficulty,2);
         
-        CCLabelTTF *highScore = CCLabelTTF::create("record: 99999","DFGirlKelvin",40);
+        sprintf(scoreBuffer,"highest score: %d",detail->highScore);
+        highScore = CCLabelTTF::create(scoreBuffer,"DFGirlKelvin",40);
         highScore->setPosition(ccp(320,390));
         this->addChild(highScore,2);
         
@@ -130,7 +132,7 @@ void GameSongSelectScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEven
     if(selectState)                                 //判定为点击
     {
         float moveX = touchEndPos.x - touchBeginPos.x;
-        if(moveX > 10)                                  //判定为向左滑
+        if(moveX > 20)                                  //判定为向左滑
         {
             AudioPlayer::sharedAudio()->playEffect(rightClick);              //击打音效
             if(songNum <= 0)
@@ -140,7 +142,7 @@ void GameSongSelectScene::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEven
             return;
         }
         
-        if(moveX < -10)                                 //判定为向右滑
+        if(moveX < -20)                                 //判定为向右滑
         {
             AudioPlayer::sharedAudio()->playEffect(rightClick);              //击打音效
             if(songNum >= 3)
@@ -212,6 +214,8 @@ void GameSongSelectScene::setSongData(int num)
     name->setString(detail->name);
     time->setString(detail->time);
     difficulty->setString(detail->difficulty);
+    sprintf(scoreBuffer,"highest score: %d",detail->highScore);
+    highScore->setString(scoreBuffer);
     
     AudioPlayer::sharedAudio()->playAudition(detail->songNumber);
 }
@@ -220,9 +224,13 @@ void GameSongSelectScene::sendSongMessage()
 {
     CCArray *data = CCArray::create();
     CC_SAFE_RETAIN(data);
-    CCString *data1 = CCString::createWithFormat("%i",detail->songNumber);
+    CCInteger *data1 = CCInteger::create(detail->songNumber);
     CCString *data2 = CCString::createWithFormat("%s",detail->csvPath);
+    CCFloat *data3 = CCFloat::create(detail->runningTime);
     data->addObject(data1);
     data->addObject(data2);
+    data->addObject(data3);
     CCNotificationCenter::sharedNotificationCenter()->postNotification("SongNum", data);
 }
+
+

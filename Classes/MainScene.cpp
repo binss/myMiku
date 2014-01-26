@@ -15,11 +15,11 @@ cocos2d::CCScene* MainScene::scene()
     
     // 'layer' is an autorelease object
     
-    HelloWorld *mikuLayer = HelloWorld::create();
+    mikuLayer *miku = mikuLayer::create();
     bottonLayer *botton = bottonLayer::create();
     
     // add layer as a child to scene
-    scene->addChild(mikuLayer);
+    scene->addChild(miku);
     scene->addChild(botton);
     // return the scene
     return scene;

@@ -1,5 +1,4 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
 //#include "MainScene.h"
 #include "SceneManager.h"
 USING_NS_CC;
@@ -33,6 +32,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // run
     //pDirector->runWithScene(pScene);
     
+    SceneManager::sharedSceneManager()->checkSaveXML();
     SceneManager::sharedSceneManager()->changeScene(SceneManager::en_MainScene);
     
     return true;

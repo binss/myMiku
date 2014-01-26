@@ -78,3 +78,26 @@ void SceneManager::changeScene( EnumSceneType enScenType )
         pDirector->replaceScene(pScene);
     }
 }
+
+void SceneManager::checkSaveXML()
+{
+    
+    if(!CCUserDefault::sharedUserDefault()->getBoolForKey("isHaveSaveFileXml"))                 //用于判断存档是否存在
+    {
+        CCUserDefault::sharedUserDefault()->setBoolForKey("isHaveSaveFileXml", true);
+        
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("highScore-deepSeaGirl", 0);
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("highScore-hazyMoon", 0);
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("highScore-senBenZakura", 0);
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("highScore-meltDown", 0);
+        
+        CCUserDefault::sharedUserDefault()->flush();                                        //提交
+        CCLOG("First run,creat the saveFile");
+    }
+    else
+    {
+        CCLOG("The saveFile is exist on : %s",CCUserDefault::sharedUserDefault()->getXMLFilePath().c_str());
+
+    }
+
+}

@@ -9,8 +9,9 @@
 #ifndef __myMiku__SongData__
 #define __myMiku__SongData__
 
+#include "cocos2d.h"
 
-
+using namespace cocos2d;
 
 class SongData
 {
@@ -31,6 +32,9 @@ public:
     const char * difficulty;
     const char * picPath;
     const char * csvPath;
+    float runningTime;
     int songNumber;
+    int highScore;
+
 };
 #endif /* defined(__myMiku__SongData__) */

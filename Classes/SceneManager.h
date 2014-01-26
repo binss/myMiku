@@ -27,6 +27,8 @@ public:
     static SceneManager* sharedSceneManager();   //获取共享的场景管理器对象，用于子类调用
 
     virtual bool init();
+    
+    void checkSaveXML();
 
     void changeScene(EnumSceneType enScenType);   //改变场景
     

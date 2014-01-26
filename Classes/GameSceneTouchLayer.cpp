@@ -119,28 +119,29 @@ void GameSceneTouchLayer::pauseButtonCallback(cocos2d::CCNode *pSender)
     pauseLayer->setPosition(ccp(0,0));
     
     GameScene::shareGameScene()->addChild(pauseLayer,20);
+    if(AudioPlayer::sharedAudio()->isBackgroundMusicPlaying())
+        AudioPlayer::sharedAudio()->pauseMusic();
     CCDirector::sharedDirector()->pause();
-    AudioPlayer::sharedAudio()->pauseMusic();
 }
 
 
 void GameSceneTouchLayer::helpButtonCallback(cocos2d::CCNode *pSender)
 {
-    GameSceneResultLayer* resultLayer = new GameSceneResultLayer();
-    if(resultLayer && resultLayer->init())
-    {
-        resultLayer->autorelease();
-    }
-    else
-    {
-        CC_SAFE_DELETE(resultLayer);
-    }
-    
-    resultLayer->setAnchorPoint(ccp(0, 0));
-    resultLayer->setPosition(ccp(0,0));
-    resultLayer->setResult(100, 20, 33, 44, 55);
-    GameScene::shareGameScene()->addChild(resultLayer,20);
-    AudioPlayer::sharedAudio()->pauseMusic();
+//    GameSceneResultLayer* resultLayer = new GameSceneResultLayer();
+//    if(resultLayer && resultLayer->init())
+//    {
+//        resultLayer->autorelease();
+//    }
+//    else
+//    {
+//        CC_SAFE_DELETE(resultLayer);
+//    }
+//    
+//    resultLayer->setAnchorPoint(ccp(0, 0));
+//    resultLayer->setPosition(ccp(0,0));
+//    resultLayer->setResult(0,100, 20, 33, 44, 55);
+//    GameScene::shareGameScene()->addChild(resultLayer,20);
+//    AudioPlayer::sharedAudio()->pauseMusic();
 }
 
 void GameSceneTouchLayer::ready()
@@ -169,22 +170,39 @@ void GameSceneTouchLayer::ready()
     safeNum = 0;
     sadNum = 0;
     comboNum = 0;
+    maxComboNum = 0;
 }
 
 void GameSceneTouchLayer::start(CCNode *pSender)
 {
-    float musicTime = 215.0f;
     AudioPlayer::sharedAudio()->playMusic(songNum);
     CCLOG("play");
     this->schedule(schedule_selector(GameSceneTouchLayer::createElement),1.0f);
-    this->scheduleOnce(schedule_selector(GameSceneTouchLayer::finish),musicTime);
+    this->scheduleOnce(schedule_selector(GameSceneTouchLayer::finish),runningTime);
 }
 
 void GameSceneTouchLayer::finish(CCNode *pSender)
 {
+    CCLOG("finish");
     unschedule(schedule_selector(GameSceneTouchLayer::createElement));
     unschedule(schedule_selector(GameSceneTouchLayer::updateCycle));
-    CCLOG("cool: %i  fine: %i  safe: %i  sad: %i",coolNum,fineNum,safeNum,sadNum);
+    if(maxComboNum < comboNum)
+        maxComboNum = comboNum;
+    GameSceneResultLayer* resultLayer = new GameSceneResultLayer();
+    if(resultLayer && resultLayer->init())
+    {
+        resultLayer->autorelease();
+    }
+    else
+    {
+        CC_SAFE_DELETE(resultLayer);
+    }
+    
+    resultLayer->setAnchorPoint(ccp(0, 0));
+    resultLayer->setPosition(ccp(0,0));
+    resultLayer->setResult(songNum,coolNum, fineNum, safeNum, sadNum, maxComboNum);
+    GameScene::shareGameScene()->addChild(resultLayer,20);
+//    CCLOG("cool: %i  fine: %i  safe: %i  sad: %i",coolNum,fineNum,safeNum,sadNum);
 }
 
 void GameSceneTouchLayer::createElement(float dt)
@@ -242,6 +260,8 @@ void GameSceneTouchLayer::setSadSign(CCObject *object)
     if (sprite->getTag() == 2 )
         setSign(false, sad);
     
+    if(maxComboNum < comboNum)
+        maxComboNum = comboNum;
     comboNum = 0;
     sadNum ++;
     GameScene::shareGameScene()->displayLayer->setCombo(comboNum);
@@ -345,7 +365,6 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
         CCTouch *pTouch = dynamic_cast<CCTouch *>(*itor);
         //获得游戏坐标位置
         CCPoint ccp = pTouch->getLocation();
-//        printf("%f\t%f\n", ccp.x, ccp.y);
         if(ccp.y < 200)                                                         //只允许y值小于200的触摸生效
         {
             if(ccp.x > 40 && ccp.x < 180)                                       //只允许x值为40-180(leftCycle)的触摸生效
@@ -374,8 +393,18 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
                         else if(( y > 170 && y <= 200) || ( y >= 20 && y < 50))
                         {
                             setSign(true, safe);
+                            if(maxComboNum < comboNum)
+                                maxComboNum = comboNum;
                             comboNum = 0;
                             safeNum ++;
+                        }
+                        else
+                        {
+                            setSign(true, sad);
+                            if(maxComboNum < comboNum)
+                                maxComboNum = comboNum;
+                            comboNum = 0;
+                            sadNum ++;
                         }
                         GameScene::shareGameScene()->displayLayer->setCombo(comboNum);
                         rubbishCollection(object);
@@ -414,8 +443,18 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
                         else if(( y > 170 && y <= 200) || ( y >= 20 && y < 50))
                         {
                             setSign(false, safe);
+                            if(maxComboNum < comboNum)
+                                maxComboNum = comboNum;
                             comboNum = 0;
                             safeNum ++;
+                        }
+                        else
+                        {
+                            setSign(false, sad);
+                            if(maxComboNum < comboNum)
+                                maxComboNum = comboNum;
+                            comboNum = 0;
+                            sadNum ++;
                         }
                         GameScene::shareGameScene()->displayLayer->setCombo(comboNum);
                         rubbishCollection(object);
@@ -429,12 +468,6 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
         }
     }
 
-    //createElement(0.5f);
-    //line = 1;
-    //int t1 = CsvUtil::sharedCsvUtil()->getInt(line, 0, "notation/test.csv");
-    //CCLog("%i",t1);
-
-    //this->schedule(schedule_selector(GameSceneTouchLayer::createElement),1.0f);
 }
 
 void GameSceneTouchLayer::rubbishCollection(CCObject *object)               //destroy the object which is out of view
@@ -471,9 +504,10 @@ void GameSceneTouchLayer::ccTouchesEnded(CCSet *pTouches, CCEvent *pEvent)
 void GameSceneTouchLayer::setSongInfo(CCObject *pSender)
 {
     CCArray *dataList = (CCArray *)pSender;
-    songNum = ((CCString*)dataList->objectAtIndex(0))->intValue();
+    songNum = dynamic_cast<CCInteger*>(dataList->objectAtIndex(0))->getValue();
     strncpy(csvPath,((CCString*)dataList->objectAtIndex(1))->getCString(),50);
-    CCLog("setSongInfo: %i , %s",songNum,csvPath);
+    runningTime = dynamic_cast<CCFloat*>(dataList->objectAtIndex(2))->getValue() + 3.0;     //延迟3秒结算
+    CCLog("setSongInfo: %i , %s, %f",songNum,csvPath,runningTime);
     ready();
     CC_SAFE_RELEASE_NULL(dataList);         //释放数组
     CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, "SongNum");      //释放观察者

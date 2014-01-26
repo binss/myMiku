@@ -66,10 +66,15 @@ bool GameSceneResultLayer::init()
 void GameSceneResultLayer::setScore(CCObject* psender)
 {
     int newNumber = (dynamic_cast<CCInteger*>(psender))->getValue();
-    counter->setNumber(counter->getCounterNumber() + newNumber);
+    int oldNumber = counter->getCounterNumber();
+    if(oldNumber + newNumber > 0)                   //越界检查
+        counter->setNumber(oldNumber + newNumber);
+    else
+        counter->setNumber(0);
+
 }
 
-void GameSceneResultLayer::setResult(int cool, int fine, int safe, int sad, int maxCombo)
+void GameSceneResultLayer::setResult(int songNum,int cool, int fine, int safe, int sad, int maxCombo)
 {
     sprintf(buffer,"%d",cool);
     coolLabel->setString(buffer);
@@ -101,6 +106,9 @@ void GameSceneResultLayer::setResult(int cool, int fine, int safe, int sad, int 
         comboScore = maxCombo * 200;
     
     showResult(coolScore,fineScore,safeScore,sadScore,comboScore);
+    
+    int total = coolScore + fineScore + safeScore + sadScore + comboScore;
+    writeSaveFile(songNum,total);
 }
 
 void GameSceneResultLayer::showResult(int coolScore,int fineScore,int safeScore,int sadScore,int comboScore)
@@ -146,4 +154,31 @@ void GameSceneResultLayer::menuCallback(cocos2d::CCNode *pSender)
     
     this->removeAllChildren();
     this->removeFromParentAndCleanup(true);
+}
+
+void GameSceneResultLayer::writeSaveFile(int songNum,int score)
+{
+    if(score < 0)
+        score = 0;
+    switch (songNum)
+    {
+        case deepSeaGirl:
+            if(CCUserDefault::sharedUserDefault()->getIntegerForKey("highScore-deepSeaGirl") < score)
+                CCUserDefault::sharedUserDefault()->setIntegerForKey("highScore-deepSeaGirl", score);
+            break;
+        case hazyMoon:
+            if(CCUserDefault::sharedUserDefault()->getIntegerForKey("highScore-hazyMoon") < score)
+                CCUserDefault::sharedUserDefault()->setIntegerForKey("highScore-hazyMoon", score);
+            break;
+        case senBenZakura:
+            if(CCUserDefault::sharedUserDefault()->getIntegerForKey("highScore-senBenZakura") < score)
+                CCUserDefault::sharedUserDefault()->setIntegerForKey("highScore-senBenZakura", score);
+            break;
+        case meltDown:
+            if(CCUserDefault::sharedUserDefault()->getIntegerForKey("highScore-meltDown") < score)
+                CCUserDefault::sharedUserDefault()->setIntegerForKey("highScore-meltDown", score);
+            break;
+            
+    }
+    CCUserDefault::sharedUserDefault()->flush();                                        //提交
 }

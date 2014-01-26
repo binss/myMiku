@@ -9,7 +9,7 @@
 #ifndef __myMiku__MainScene__
 #define __myMiku__MainScene__
 
-#include "HelloWorldScene.h"
+#include "mikuLayer.h"
 #include "bottonLayer.h"
 
 class MainScene : public cocos2d::CCScene

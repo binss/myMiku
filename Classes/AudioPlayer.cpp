@@ -36,21 +36,12 @@ bool AudioPlayer::init()
     
 
     
-    PlayingEffect = true;
-    PlayingMusic = true;
+//    PlayingEffect = true;
+//    PlayingMusic = false;
     
     return true;
 }
 
-void AudioPlayer::pause()
-{
-    
-}
-
-void AudioPlayer::resume()
-{
-    
-}
 
 void AudioPlayer::playEffect(int index)
 {
@@ -98,14 +89,20 @@ void AudioPlayer::stopAllMusic()
     SimpleAudioEngine::sharedEngine()->stopBackgroundMusic();
 }
 
-void AudioPlayer::setEffectPlay(bool play)
-{
-    PlayingEffect = play;
-}
+//void AudioPlayer::setEffectPlay(bool play)
+//{
+//    PlayingEffect = play;
+//}
 
-void AudioPlayer::setBackgroundMusicPlay(bool play)
+
+//void AudioPlayer::setBackgroundMusicPlay(bool play)
+//{
+//    PlayingMusic = play;
+//}
+
+bool AudioPlayer::isBackgroundMusicPlaying()
 {
-    PlayingMusic = play;
+    return SimpleAudioEngine::sharedEngine()->isBackgroundMusicPlaying();
 }
 
 void AudioPlayer::setVolume(float volume)

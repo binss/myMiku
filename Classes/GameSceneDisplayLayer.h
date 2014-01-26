@@ -24,10 +24,12 @@ public:
     void turnLeft();
     void turnRight();
     void setCombo(int combo);
+    void setComboInvisible();
 
 
 private:
     CCArmature *armature;
+    CCSprite *comboTag;
     CCLabelAtlas* comboCount;
     
 };

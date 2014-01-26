@@ -43,8 +43,6 @@ private:
     bool PlayingEffect;
     bool PlayingMusic;
     
-    void pause();
-    void resume();  //will used?
     CREATE_FUNC(AudioPlayer);
 public:
     bool init();
@@ -57,9 +55,10 @@ public:
     void pauseMusic();
     void resumeMusic();
     void preLoadMusic(int music);
-    void setEffectPlay(bool play);
-    void setBackgroundMusicPlay(bool play);
+//    void setEffectPlay(bool play);
+//    void setBackgroundMusicPlay(bool play);
     void setVolume(float volume);
+    bool isBackgroundMusicPlaying();
   
 };
 
