@@ -28,6 +28,8 @@ public:
     virtual void registerWithTouchDispatcher();
     void checkQuestionBoxStatus(float dt);
     //void update(float dt);
+    CCArmature * armature;
+    int i;
     
 };
 

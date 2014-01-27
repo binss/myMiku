@@ -10,6 +10,7 @@
 #include "MainScene.h"
 #include "GameScene.h"
 #include "GameSongSelectScene.h"
+#include "CreatModeScene.h"
 
 SceneManager* SceneManager::mSceneManager = NULL;
 
@@ -58,7 +59,11 @@ void SceneManager::changeScene( EnumSceneType enScenType )
         {
             CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(1.0f, GameScene::newGameScene()));
             break;
-
+        }
+        case en_creatModeScene:
+        {
+            CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(1.0f, CreatModeScene::shareCreatModeScene()));
+            break;
         }
             
     }

@@ -178,6 +178,11 @@
 		3407786C1886F50700B232D2 /* buttons in Resources */ = {isa = PBXBuildFile; fileRef = 3407786B1886F50700B232D2 /* buttons */; };
 		341C4D0F1892047F00374599 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 341C4D0E1892047F00374599 /* fonts */; };
 		341C4D15189236D200374599 /* SongData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341C4D13189236D200374599 /* SongData.cpp */; };
+		341FCD101896ADAD004D2A68 /* CreatModeGestureLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341FCD0E1896ADAD004D2A68 /* CreatModeGestureLayer.cpp */; };
+		341FCD1A1896ADCE004D2A68 /* GeometricRecognizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341FCD141896ADCE004D2A68 /* GeometricRecognizer.cpp */; };
+		341FCD1E1896AEAC004D2A68 /* CreatModeScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341FCD1C1896AEAC004D2A68 /* CreatModeScene.cpp */; };
+		341FCD241896B4E6004D2A68 /* CreatModeDisplayLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 341FCD221896B4E6004D2A68 /* CreatModeDisplayLayer.cpp */; };
+		341FCD261896B5CB004D2A68 /* creatMode in Resources */ = {isa = PBXBuildFile; fileRef = 341FCD251896B5CB004D2A68 /* creatMode */; };
 		3420F0CA188CBE8E008EE6E2 /* SceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0C8188CBE8E008EE6E2 /* SceneManager.cpp */; };
 		3420F0CE188CE0DC008EE6E2 /* StringUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0CC188CE0DC008EE6E2 /* StringUtil.cpp */; };
 		3420F0D1188CE477008EE6E2 /* FileLoadUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3420F0CF188CE477008EE6E2 /* FileLoadUtil.cpp */; };
@@ -199,6 +204,7 @@
 		34F7580E1893E49500269243 /* CounterDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7580C1893E49500269243 /* CounterDown.cpp */; };
 		34FAF47318935D8F0074F3A4 /* GameScenePauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF47118935D8F0074F3A4 /* GameScenePauseLayer.cpp */; };
 		34FAF47618935E000074F3A4 /* GameSceneResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF47418935E000074F3A4 /* GameSceneResultLayer.cpp */; };
+		34FE19C718952EE300249AC9 /* particle in Resources */ = {isa = PBXBuildFile; fileRef = 34FE19C618952EE300249AC9 /* particle */; };
 		375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BB1868411B0024609E /* ObjectFactory.cpp */; };
 		375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BD1868411B0024609E /* TriggerBase.cpp */; };
 		375BD4C51868411B0024609E /* TriggerMng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BF1868411B0024609E /* TriggerMng.cpp */; };
@@ -629,6 +635,19 @@
 		341C4D0E1892047F00374599 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		341C4D13189236D200374599 /* SongData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SongData.cpp; sourceTree = "<group>"; };
 		341C4D14189236D200374599 /* SongData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SongData.h; sourceTree = "<group>"; };
+		341FCD0E1896ADAD004D2A68 /* CreatModeGestureLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreatModeGestureLayer.cpp; path = ../Classes/CreatModeGestureLayer.cpp; sourceTree = "<group>"; };
+		341FCD0F1896ADAD004D2A68 /* CreatModeGestureLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatModeGestureLayer.h; path = ../Classes/CreatModeGestureLayer.h; sourceTree = "<group>"; };
+		341FCD141896ADCE004D2A68 /* GeometricRecognizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeometricRecognizer.cpp; sourceTree = "<group>"; };
+		341FCD151896ADCE004D2A68 /* GeometricRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricRecognizer.h; sourceTree = "<group>"; };
+		341FCD161896ADCE004D2A68 /* GeometricRecognizerTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometricRecognizerTypes.h; sourceTree = "<group>"; };
+		341FCD171896ADCE004D2A68 /* GestureTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureTemplate.h; sourceTree = "<group>"; };
+		341FCD181896ADCE004D2A68 /* PathWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathWriter.h; sourceTree = "<group>"; };
+		341FCD191896ADCE004D2A68 /* SampleGestures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleGestures.h; sourceTree = "<group>"; };
+		341FCD1C1896AEAC004D2A68 /* CreatModeScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CreatModeScene.cpp; sourceTree = "<group>"; };
+		341FCD1D1896AEAC004D2A68 /* CreatModeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatModeScene.h; sourceTree = "<group>"; };
+		341FCD221896B4E6004D2A68 /* CreatModeDisplayLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CreatModeDisplayLayer.cpp; sourceTree = "<group>"; };
+		341FCD231896B4E6004D2A68 /* CreatModeDisplayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreatModeDisplayLayer.h; sourceTree = "<group>"; };
+		341FCD251896B5CB004D2A68 /* creatMode */ = {isa = PBXFileReference; lastKnownFileType = folder; path = creatMode; sourceTree = "<group>"; };
 		3420F0C8188CBE8E008EE6E2 /* SceneManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SceneManager.cpp; path = ../Classes/SceneManager.cpp; sourceTree = "<group>"; };
 		3420F0C9188CBE8E008EE6E2 /* SceneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SceneManager.h; path = ../Classes/SceneManager.h; sourceTree = "<group>"; };
 		3420F0CC188CE0DC008EE6E2 /* StringUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtil.cpp; sourceTree = "<group>"; };
@@ -664,6 +683,7 @@
 		34FAF47218935D8F0074F3A4 /* GameScenePauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScenePauseLayer.h; path = ../Classes/GameScenePauseLayer.h; sourceTree = "<group>"; };
 		34FAF47418935E000074F3A4 /* GameSceneResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSceneResultLayer.cpp; sourceTree = "<group>"; };
 		34FAF47518935E000074F3A4 /* GameSceneResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneResultLayer.h; sourceTree = "<group>"; };
+		34FE19C618952EE300249AC9 /* particle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = particle; sourceTree = "<group>"; };
 		373B911F18788FB000198F86 /* CCComBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCComBase.h; sourceTree = "<group>"; };
 		375BD4BB1868411B0024609E /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFactory.cpp; sourceTree = "<group>"; };
 		375BD4BC1868411B0024609E /* ObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectFactory.h; sourceTree = "<group>"; };
@@ -1329,28 +1349,34 @@
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
 				3420F0C9188CBE8E008EE6E2 /* SceneManager.h */,
 				3420F0C8188CBE8E008EE6E2 /* SceneManager.cpp */,
+				342923D4188FC9C00040960C /* AudioPlayer.h */,
+				342923D3188FC9C00040960C /* AudioPlayer.cpp */,
+				340778681886CDC600B232D2 /* MainScene.h */,
+				340778671886CDC600B232D2 /* MainScene.cpp */,
 				1AFAF8B616D35DE700DB1158 /* mikuLayer.h */,
 				1AFAF8B516D35DE700DB1158 /* mikuLayer.mm */,
 				340778641886CD7600B232D2 /* bottonLayer.cpp */,
 				340778651886CD7600B232D2 /* bottonLayer.h */,
-				340778671886CDC600B232D2 /* MainScene.cpp */,
-				340778681886CDC600B232D2 /* MainScene.h */,
+				341C4D14189236D200374599 /* SongData.h */,
+				341C4D13189236D200374599 /* SongData.cpp */,
+				343DFD231891698D006BED99 /* GameSongSelectScene.h */,
+				343DFD221891698D006BED99 /* GameSongSelectScene.cpp */,
 				3420F0D3188CE785008EE6E2 /* GameScene.h */,
 				3420F0D2188CE785008EE6E2 /* GameScene.cpp */,
 				3420F0D6188CE960008EE6E2 /* GameSceneTouchLayer.h */,
 				3420F0D5188CE960008EE6E2 /* GameSceneTouchLayer.cpp */,
 				3420F0D9188CE971008EE6E2 /* GameSceneDisplayLayer.h */,
 				3420F0D8188CE971008EE6E2 /* GameSceneDisplayLayer.cpp */,
-				342923D4188FC9C00040960C /* AudioPlayer.h */,
-				342923D3188FC9C00040960C /* AudioPlayer.cpp */,
-				343DFD231891698D006BED99 /* GameSongSelectScene.h */,
-				343DFD221891698D006BED99 /* GameSongSelectScene.cpp */,
-				341C4D14189236D200374599 /* SongData.h */,
-				341C4D13189236D200374599 /* SongData.cpp */,
 				34FAF47218935D8F0074F3A4 /* GameScenePauseLayer.h */,
 				34FAF47118935D8F0074F3A4 /* GameScenePauseLayer.cpp */,
 				34FAF47518935E000074F3A4 /* GameSceneResultLayer.h */,
 				34FAF47418935E000074F3A4 /* GameSceneResultLayer.cpp */,
+				341FCD1D1896AEAC004D2A68 /* CreatModeScene.h */,
+				341FCD1C1896AEAC004D2A68 /* CreatModeScene.cpp */,
+				341FCD0F1896ADAD004D2A68 /* CreatModeGestureLayer.h */,
+				341FCD0E1896ADAD004D2A68 /* CreatModeGestureLayer.cpp */,
+				341FCD231896B4E6004D2A68 /* CreatModeDisplayLayer.h */,
+				341FCD221896B4E6004D2A68 /* CreatModeDisplayLayer.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1493,9 +1519,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		341FCD131896ADCE004D2A68 /* Recognizer */ = {
+			isa = PBXGroup;
+			children = (
+				341FCD141896ADCE004D2A68 /* GeometricRecognizer.cpp */,
+				341FCD151896ADCE004D2A68 /* GeometricRecognizer.h */,
+				341FCD161896ADCE004D2A68 /* GeometricRecognizerTypes.h */,
+				341FCD171896ADCE004D2A68 /* GestureTemplate.h */,
+				341FCD181896ADCE004D2A68 /* PathWriter.h */,
+				341FCD191896ADCE004D2A68 /* SampleGestures.h */,
+			);
+			path = Recognizer;
+			sourceTree = "<group>";
+		};
 		3420F0CB188CE06B008EE6E2 /* toolClasses */ = {
 			isa = PBXGroup;
 			children = (
+				341FCD131896ADCE004D2A68 /* Recognizer */,
 				3420F0CC188CE0DC008EE6E2 /* StringUtil.cpp */,
 				3420F0CD188CE0DC008EE6E2 /* StringUtil.h */,
 				3420F0CF188CE477008EE6E2 /* FileLoadUtil.cpp */,
@@ -1832,6 +1872,8 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				341FCD251896B5CB004D2A68 /* creatMode */,
+				34FE19C618952EE300249AC9 /* particle */,
 				3406F7121892A47E00872E98 /* audition */,
 				3406F70F1892930D00872E98 /* songList */,
 				3406F7091892912500872E98 /* game */,
@@ -1947,7 +1989,9 @@
 				34E1EC5718867B2A00CBE621 /* miku0.plist in Resources */,
 				1AFAF8BC16D35E4900DB1158 /* CloseNormal.png in Resources */,
 				342923D9188FE3E50040960C /* music in Resources */,
+				341FCD261896B5CB004D2A68 /* creatMode in Resources */,
 				3406F7101892930D00872E98 /* songList in Resources */,
+				34FE19C718952EE300249AC9 /* particle in Resources */,
 				1AFAF8BD16D35E4900DB1158 /* CloseSelected.png in Resources */,
 				342923D7188FD20A0040960C /* effects in Resources */,
 				1AFAF8BE16D35E4900DB1158 /* HelloWorld.png in Resources */,
@@ -1996,6 +2040,7 @@
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
 				15A3D91A1682F7D5002FB0C5 /* b2Contact.cpp in Sources */,
 				15A3D91B1682F7D5002FB0C5 /* b2ContactSolver.cpp in Sources */,
+				341FCD1E1896AEAC004D2A68 /* CreatModeScene.cpp in Sources */,
 				15A3D91C1682F7D5002FB0C5 /* b2EdgeAndCircleContact.cpp in Sources */,
 				15A3D91D1682F7D5002FB0C5 /* b2EdgeAndPolygonContact.cpp in Sources */,
 				15A3D91E1682F7D5002FB0C5 /* b2PolygonAndCircleContact.cpp in Sources */,
@@ -2041,6 +2086,7 @@
 				15A3D9AC1682F7F9002FB0C5 /* cpSpaceComponent.c in Sources */,
 				15A3D9AD1682F7F9002FB0C5 /* cpSpaceHash.c in Sources */,
 				15A3D9AE1682F7F9002FB0C5 /* cpSpaceQuery.c in Sources */,
+				341FCD101896ADAD004D2A68 /* CreatModeGestureLayer.cpp in Sources */,
 				15A3D9AF1682F7F9002FB0C5 /* cpSpaceStep.c in Sources */,
 				3420F0D7188CE960008EE6E2 /* GameSceneTouchLayer.cpp in Sources */,
 				15A3D9B01682F7F9002FB0C5 /* cpSpatialIndex.c in Sources */,
@@ -2121,6 +2167,7 @@
 				1A8F3B74175E05DA00049216 /* AttachmentLoader.cpp in Sources */,
 				1A8F3B75175E05DA00049216 /* Bone.cpp in Sources */,
 				1A8F3B76175E05DA00049216 /* BoneData.cpp in Sources */,
+				341FCD1A1896ADCE004D2A68 /* GeometricRecognizer.cpp in Sources */,
 				1A8F3B77175E05DA00049216 /* CCSkeleton.cpp in Sources */,
 				1A8F3B78175E05DA00049216 /* CCSkeletonAnimation.cpp in Sources */,
 				375BD5121868454E0024609E /* CCActionNode.cpp in Sources */,
@@ -2141,6 +2188,7 @@
 				379BB99A17F03F3700829B88 /* CCArmatureAnimation.cpp in Sources */,
 				34FAF47318935D8F0074F3A4 /* GameScenePauseLayer.cpp in Sources */,
 				379BB99B17F03F3700829B88 /* CCProcessBase.cpp in Sources */,
+				341FCD241896B4E6004D2A68 /* CreatModeDisplayLayer.cpp in Sources */,
 				379BB99C17F03F3700829B88 /* CCTween.cpp in Sources */,
 				379BB99D17F03F3700829B88 /* CCArmature.cpp in Sources */,
 				379BB99E17F03F3700829B88 /* CCBone.cpp in Sources */,

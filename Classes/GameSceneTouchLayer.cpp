@@ -408,7 +408,9 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
                         }
                         GameScene::shareGameScene()->displayLayer->setCombo(comboNum);
                         rubbishCollection(object);
-                        CCParticleSystem * particle=CCParticleExplosion::create();
+                        CCParticleSystemQuad *particle = new CCParticleSystemQuad();
+                        particle->initWithFile("particle/ExplodingRing.plist");
+//                        CCParticleSystem * particle=CCParticleExplosion::create();
                         particle->setPosition(ccp(x,y));
                         particle->setAutoRemoveOnFinish(true);
                         this->addChild(particle);
@@ -458,10 +460,13 @@ void GameSceneTouchLayer::ccTouchesBegan(CCSet *pTouches, CCEvent *pEvent)
                         }
                         GameScene::shareGameScene()->displayLayer->setCombo(comboNum);
                         rubbishCollection(object);
-                        CCParticleSystem * particle=CCParticleExplosion::create();
+                        CCParticleSystemQuad *particle = new CCParticleSystemQuad();
+                        particle->initWithFile("particle/ExplodingRing.plist");
+//                        CCParticleSystem * particle=CCParticleExplosion::create();
                         particle->setPosition(ccp(x,y));
                         particle->setAutoRemoveOnFinish(true);
                         this->addChild(particle);
+
                     }
                 }
             }

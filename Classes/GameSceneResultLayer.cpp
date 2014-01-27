@@ -46,7 +46,8 @@ bool GameSceneResultLayer::init()
     
     sadLabel = CCLabelTTF::create("0","DFGirlKelvin",50);
     sadLabel->setPosition(ccp(700,445));
-    sadLabel->setColor(ccc3(176,107,240));    this->addChild(sadLabel,2);
+    sadLabel->setColor(ccc3(176,107,240));
+    this->addChild(sadLabel,2);
     
     comboLabel = CCLabelTTF::create("0","DFGirlKelvin",50);
     comboLabel->setPosition(ccp(700,395));

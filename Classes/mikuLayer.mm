@@ -49,7 +49,7 @@ bool mikuLayer::init()
 	CCArmatureDataManager::sharedArmatureDataManager()->addArmatureFileInfo("miku0.png","miku0.plist","miku.ExportJson");
     
 	//新建动画
-	CCArmature *armature = CCArmature::create("miku");
+	armature = CCArmature::create("miku");
 	//设定启始帧
 	armature->getAnimation()->playByIndex(0);
 	//设置放大倍数
@@ -63,6 +63,8 @@ bool mikuLayer::init()
     this->setTouchEnabled(true);
     this->setTouchMode(kCCTouchesOneByOne);
     
+    i=0;
+
     return true;
 }
 
@@ -73,13 +75,20 @@ void mikuLayer::registerWithTouchDispatcher()
 
 bool mikuLayer::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
 {
-    if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-    {
-        //CCMessageBox("this is content","title");
-        box = [[QuestionBox alloc] init];
-        [box hMessageBox:@"是否喂食？" title:@"喂食"];
-        schedule(schedule_selector(mikuLayer::checkQuestionBoxStatus), 0.1f);
-    }
+    if(i == 40)
+        i = 0;
+    i += 10;
+    armature->getAnimation()->playByIndex(0);
+    for (int x=i;x<i+ 10;x++)
+        armature->getAnimation()->gotoAndPause(i);
+    
+//    if(CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+//    {
+//        //CCMessageBox("this is content","title");
+//        box = [[QuestionBox alloc] init];
+//        [box hMessageBox:@"是否喂食？" title:@"喂食"];
+//        schedule(schedule_selector(mikuLayer::checkQuestionBoxStatus), 0.1f);
+//    }
     return true;
 }
 

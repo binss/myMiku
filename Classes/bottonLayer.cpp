@@ -27,7 +27,7 @@ bool bottonLayer::init()
     CCSprite *sprite1 = CCSprite::create("buttons/food.png");
     CCSprite *sprite2 = CCSprite::create("buttons/game.png");
     CCSprite *sprite3 = CCSprite::create("buttons/gift.png");
-    CCSprite *sprite4 = CCSprite::create("buttons/heart.png");
+    CCSprite *sprite4 = CCSprite::create("buttons/creat.png");
     CCSprite *sprite5 = CCSprite::create("buttons/lib.png");
     CCSprite *sprite6 = CCSprite::create("buttons/money.png");
     CCSprite *sprite7 = CCSprite::create("buttons/setting.png");
@@ -119,5 +119,6 @@ void bottonLayer::menu3Callback(cocos2d::CCNode *pSender)
 
 void bottonLayer::menu4Callback(cocos2d::CCNode *pSender)
 {
-    
+    SceneManager::sharedSceneManager()->changeScene(SceneManager::en_creatModeScene);
+
 }
