@@ -7,6 +7,7 @@
 //
 
 #include "CreatModeGestureLayer.h"
+#include "CreatModeScene.h"
 
 GestureManager* GestureManager::mGestureManager = NULL;
 
@@ -52,16 +53,25 @@ bool GestureManager::init()
     drawPoints.reserve(256);                                    //建立容纳256个点的容器
     drawState = true;                                           //默认开启划线，显示轨迹
     setDrawColor(ccc4(255,255,255,255));                        //默认设定为白色轨迹
+    setValidZone(960,0,0,640);                                  //默认按4S的分辨率设置
+    outOfBound = false;
     
     return true;
 }
 
 bool GestureManager::ccTouchBegan( CCTouch *pTouch, CCEvent *pEvent )
 {
+    CCPoint point = pTouch->getLocation();
+    if(point.x < leftBound || point.x > rightBound || point.y < downBound || point.y > upBound)
+    {
+        outOfBound = true;
+        CCLOG("out");
+        return true;
+    }
     CCParticleSystemQuad* mEffect = CCParticleSystemQuad::create("particle/TouchEffect.plist");
     mEffect->setPosition( 0, 0 );
     effectParticle->addChild(mEffect);
-    CCPoint point = pTouch->getLocation();
+
     effectParticle->setPosition( point.x, point.y );            //粒子节点跟随触摸点移动
     
     if(drawState)
@@ -69,13 +79,17 @@ bool GestureManager::ccTouchBegan( CCTouch *pTouch, CCEvent *pEvent )
         clearPoints();
         drawPoints.push_back(point);
     }
-    
     return true;
 }
 
 void GestureManager::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
 {
+    if(outOfBound)
+        return;
     CCPoint point = pTouch->getLocation();
+    if(point.x < leftBound || point.x > rightBound || point.y < downBound || point.y > upBound)
+        return;
+    
     effectParticle->setPosition( point.x, point.y );            //粒子节点跟随触摸点移动
 
     CCPoint mLocation = pTouch->getLocationInView();
@@ -89,17 +103,23 @@ void GestureManager::ccTouchMoved(CCTouch *pTouch, CCEvent *pEvent)
 }
 void GestureManager::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent)
 {
+    if(outOfBound)
+    {
+        outOfBound = false;
+        CCLOG("out end");
+        return;
+    }
+    
     effectParticle->removeAllChildren();                        //移除粒子效果
     CCPoint mLocation = pTouch->getLocationInView();
     m_endPoint->x = mLocation.x;                                //记录终点坐标
     m_endPoint->y = mLocation.y;
     
-    CCPoint point = pTouch->getLocation();
-    if(drawState)
-        drawPoints.push_back(point);
-    
-    
-    FingerJudge();
+//    CCPoint point = pTouch->getLocation();
+//    if(drawState)
+//        drawPoints.push_back(point);
+
+//    FingerJudge();
     
 }
 
@@ -119,11 +139,15 @@ void GestureManager::FingerJudge()
         CCLOG("click");
         return;
     }
+    
     //PathWriter::writeToFile(path);                                            //把路径的点输出到文件
+    
+    
+    
     RecognitionResult result = m_GeometricRecognizer->recognize(path);          //把路径交给识别类识别，得到结果
-    string name = result.name;
-    CCLOG("judge: %s,%f",name.c_str(),result.score);
-    path.clear();
+    
+    CreatModeScene::shareCreatModeScene()->menuLayer->setCreatItemData(result.name, result.score);
+//    path.clear();
 }
 
 void GestureManager::registerWithTouchDispatcher()
@@ -151,6 +175,15 @@ void GestureManager::draw()
 void GestureManager::clearPoints()
 {
     drawPoints.clear();
+    path.clear();
+}
+
+void GestureManager::setValidZone(int up,int down,int left,int right)
+{
+    upBound = up;
+    downBound = down;
+    leftBound = left;
+    rightBound = right;
 }
 
 void GestureManager::setDrawState(bool state)

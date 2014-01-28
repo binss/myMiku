@@ -20,10 +20,12 @@ class CreatModeDisplayLayer : public cocos2d::CCLayer
 public:
     virtual bool init();
     CREATE_FUNC(CreatModeDisplayLayer);
-
+    
     
     
 private:
+    CCLabelTTF *creatModeLabel;
+    
     
     
 };

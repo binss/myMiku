@@ -23,7 +23,11 @@ bool CreatModeDisplayLayer::init()
     background->setPosition(ccp(visibleSize.width / 2, visibleSize.height / 2));
     this->addChild(background,0);
     
-       
+    creatModeLabel = CCLabelTTF::create("创造模式","DFGirlKelvin",60);
+    creatModeLabel->setPosition(ccp(320,830));
+    this->addChild(creatModeLabel,2);
+
     
     return true;
 }
+

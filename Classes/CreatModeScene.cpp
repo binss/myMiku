@@ -13,11 +13,11 @@ bool CreatModeScene::init()
 {
     
     gestureLayer = GestureManager::create();
-    
-    this->addChild(gestureLayer,10);
+    gestureLayer->setValidZone(800, 100, 100, 540);
+    this->addChild(gestureLayer,5);
 
     
-    displayLayer = new CreatModeDisplayLayer();   //º”‘ÿ»ÀŒÔ
+    displayLayer = new CreatModeDisplayLayer();  
 	
 	if(displayLayer && displayLayer->init())
     {
@@ -29,6 +29,19 @@ bool CreatModeScene::init()
 	}
 	
     this->addChild(displayLayer, 0);
+    
+    menuLayer = new CreatModeMenuLayer();
+	
+	if(menuLayer && menuLayer->init())
+    {
+		
+		menuLayer->autorelease();
+	}else{
+		
+		CC_SAFE_DELETE(menuLayer);
+	}
+	
+    this->addChild(menuLayer, 10);
 
     return true;
 }

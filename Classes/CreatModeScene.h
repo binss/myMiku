@@ -13,7 +13,7 @@
 #include "cocos-ext.h"
 #include "CreatModeGestureLayer.h"
 #include "CreatModeDisplayLayer.h"
-
+#include "CreatModeMenuLayer.h"
 USING_NS_CC;
 
 using namespace extension;
@@ -25,6 +25,7 @@ public:
     bool init();
     GestureManager * gestureLayer;
     CreatModeDisplayLayer * displayLayer;
+    CreatModeMenuLayer *menuLayer;
     static CreatModeScene * shareCreatModeScene();
     
 };

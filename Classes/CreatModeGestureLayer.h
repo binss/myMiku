@@ -30,21 +30,27 @@ public:
     void clearPoints();
     void setDrawState(bool state);              //设置是否沿手势轨迹划线
     void setDrawColor(ccColor4B color);         //设置划线颜色
+    void setValidZone(int up,int down,int left,int right);
+    void FingerJudge();
+
 
     
 private:
+    bool init();
+
+    std::vector<CCPoint> drawPoints;
+    static GestureManager* mGestureManager;      //场景管理器对象
     CCPoint* m_endPoint;
     bool m_Clicked;
     GeometricRecognizer* m_GeometricRecognizer;
     CCNode* effectParticle;
     Path2D path;           //轨迹
-    bool init();
-    void FingerJudge();
-
-    static GestureManager* mGestureManager;      //场景管理器对象
-
-    std::vector<CCPoint> drawPoints;
     bool drawState;
+    bool outOfBound;
+    int leftBound;
+    int rightBound;
+    int upBound;
+    int downBound;
 
 };
 
