@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "cocos-ext.h"
+#include "CreatModeSelectLayer.h"
 
 USING_NS_CC;
 using namespace extension;
@@ -29,6 +30,12 @@ private:
     void clearMenuCallback(CCNode *pSender);
     void creatMenuCallback(CCNode *pSender);
     void penMenuCallback(CCNode *pSender);
+    
+    CCMenuItemLabel *clearItem;
+    
+    CCMenuItemLabel *creatItem;
+    bool selectState;
+    CreatModeSelectLayer* selectLayer;
 
     
 };

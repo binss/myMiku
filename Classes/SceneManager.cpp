@@ -96,6 +96,20 @@ void SceneManager::checkSaveXML()
         CCUserDefault::sharedUserDefault()->setIntegerForKey("highScore-senBenZakura", 0);
         CCUserDefault::sharedUserDefault()->setIntegerForKey("highScore-meltDown", 0);
         
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("fish", 0);
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("star", 0);
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("lollipop", 0);
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("orange", 0);
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("diamond", 0);
+        CCUserDefault::sharedUserDefault()->setIntegerForKey("dollar", 0);
+        
+        CCUserDefault::sharedUserDefault()->setBoolForKey("hasCreated-fish",false);
+        CCUserDefault::sharedUserDefault()->setBoolForKey("hasCreated-star",false);
+        CCUserDefault::sharedUserDefault()->setBoolForKey("hasCreated-lollipop",false);
+        CCUserDefault::sharedUserDefault()->setBoolForKey("hasCreated-orange",false);
+        CCUserDefault::sharedUserDefault()->setBoolForKey("hasCreated-diamond",false);
+        CCUserDefault::sharedUserDefault()->setBoolForKey("hasCreated-dollar",false);
+
         CCUserDefault::sharedUserDefault()->flush();                                        //提交
         CCLOG("First run,creat the saveFile");
     }

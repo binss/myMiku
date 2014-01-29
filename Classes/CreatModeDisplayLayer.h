@@ -20,11 +20,13 @@ class CreatModeDisplayLayer : public cocos2d::CCLayer
 public:
     virtual bool init();
     CREATE_FUNC(CreatModeDisplayLayer);
-    
+    CCLabelTTF *creatModeLabel;
+
+    void setResult(bool state,std::string name,double value);
+
     
     
 private:
-    CCLabelTTF *creatModeLabel;
     
     
     

@@ -198,7 +198,6 @@
 		343DFD241891698D006BED99 /* GameSongSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343DFD221891698D006BED99 /* GameSongSelectScene.cpp */; };
 		346E84BA188D016C00F2D7D5 /* CsvUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 346E84B8188D016C00F2D7D5 /* CsvUtil.cpp */; };
 		347EC9651890F3730025463C /* animation in Resources */ = {isa = PBXBuildFile; fileRef = 347EC9641890F3730025463C /* animation */; };
-		34CDE3D51897950A00445445 /* CreatModeResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34CDE3D31897950A00445445 /* CreatModeResultLayer.cpp */; };
 		34E1EC5618867B2A00CBE621 /* miku.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5318867B2A00CBE621 /* miku.ExportJson */; };
 		34E1EC5718867B2A00CBE621 /* miku0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5418867B2A00CBE621 /* miku0.plist */; };
 		34E1EC5818867B2A00CBE621 /* miku0.png in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5518867B2A00CBE621 /* miku0.png */; };
@@ -678,8 +677,6 @@
 		346E84B8188D016C00F2D7D5 /* CsvUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CsvUtil.cpp; sourceTree = "<group>"; };
 		346E84B9188D016C00F2D7D5 /* CsvUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsvUtil.h; sourceTree = "<group>"; };
 		347EC9641890F3730025463C /* animation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = animation; sourceTree = "<group>"; };
-		34CDE3D31897950A00445445 /* CreatModeResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CreatModeResultLayer.cpp; path = ../Classes/CreatModeResultLayer.cpp; sourceTree = "<group>"; };
-		34CDE3D41897950A00445445 /* CreatModeResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CreatModeResultLayer.h; path = ../Classes/CreatModeResultLayer.h; sourceTree = "<group>"; };
 		34E1EC5318867B2A00CBE621 /* miku.ExportJson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = miku.ExportJson; sourceTree = "<group>"; };
 		34E1EC5418867B2A00CBE621 /* miku0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = miku0.plist; sourceTree = "<group>"; };
 		34E1EC5518867B2A00CBE621 /* miku0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = miku0.png; sourceTree = "<group>"; };
@@ -1390,8 +1387,6 @@
 				3406503A18975C7500EB2147 /* CreatModeMenuLayer.cpp */,
 				340650381897586400EB2147 /* CreatModeSelectLayer.h */,
 				340650371897586400EB2147 /* CreatModeSelectLayer.cpp */,
-				34CDE3D41897950A00445445 /* CreatModeResultLayer.h */,
-				34CDE3D31897950A00445445 /* CreatModeResultLayer.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2053,7 +2048,6 @@
 				15A3D9181682F7D5002FB0C5 /* b2ChainAndPolygonContact.cpp in Sources */,
 				375BD5111868454E0024609E /* CCActionManager.cpp in Sources */,
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
-				34CDE3D51897950A00445445 /* CreatModeResultLayer.cpp in Sources */,
 				15A3D91A1682F7D5002FB0C5 /* b2Contact.cpp in Sources */,
 				15A3D91B1682F7D5002FB0C5 /* b2ContactSolver.cpp in Sources */,
 				341FCD1E1896AEAC004D2A68 /* CreatModeScene.cpp in Sources */,

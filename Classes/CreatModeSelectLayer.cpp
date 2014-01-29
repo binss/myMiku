@@ -20,32 +20,72 @@ bool CreatModeSelectLayer::init()
     }
     
     //CCSize size = CCDirector::sharedDirector()->getWinSize();
+    CCLayer *layer = CCLayer::create();
+    layer->setContentSize(CCSizeMake(640,1200));
     
-    CCSprite *fishSprite = CCSprite::create("buttons/food.png");
-    CCSprite *dollarSprite = CCSprite::create("buttons/game.png");
+    CCSprite *fishSprite = CCSprite::create("creatMode/items/fish.png");
+    CCSprite *dollarSprite = CCSprite::create("creatMode/items/dollar.png");
+    CCSprite *orangeSprite = CCSprite::create("creatMode/items/orange.png");
+    CCSprite *starSprite = CCSprite::create("creatMode/items/star.png");
+    CCSprite *diamondSprite = CCSprite::create("creatMode/items/diamond.png");
+    CCSprite *lollipopSprite = CCSprite::create("creatMode/items/lollipop.png");
+
+    // Menu
+    
+    fishSprite->setPosition(ccp(320,1100));
+    dollarSprite->setPosition(ccp(320,900));
+    orangeSprite->setPosition(ccp(320,700));
+    starSprite->setPosition(ccp(320,500));
+    diamondSprite->setPosition(ccp(320,300));
+    lollipopSprite->setPosition(ccp(320,100));
+
+    layer->addChild(fishSprite);
+    layer->addChild(dollarSprite);
+    layer->addChild(orangeSprite);
+    layer->addChild(starSprite);
+    layer->addChild(diamondSprite);
+    layer->addChild(lollipopSprite);
 
     
-    int spriteSize = 64;
-    // Menu
-    /*
-    CCMenuItemSprite *menuItem1 = CCMenuItemSprite::create(sprite1, sprite1, this, menu_selector(bottonLayer::menu1Callback));
-    menuItem1->setPosition(ccpAdd(ccp(16,20),ccp(spriteSize,spriteSize)));
-    CCMenuItemSprite *menuItem2 = CCMenuItemSprite::create(sprite2, sprite2, this, menu_selector(bottonLayer::menu2Callback));
-    menuItem2->setPosition(ccpAdd(ccp(176,20), ccp(spriteSize,spriteSize)));
+
+    scrollView = CCScrollView::create();                            // 创建一个实例
+    scrollView->setContentSize(CCSizeMake(640, 1200));              //设置容器大小（内容尺寸）
+    scrollView->setViewSize(CCSizeMake(640, 710));                  //设置显示（可视）范围
     
-    CCMenu *menu = CCMenu::create(menuItem1, menuItem2,menuItem3,menuItem4,menuItem5,menuItem6,menuItem7,menuItem8, NULL); d
-    menu->setPosition(CCPointZero);
-    layer->addChild(menu);
-    
-    scrollView = CCScrollView::create(); // 创建一个实例
-    scrollView->setContentSize(CCSizeMake(640, 168)); //设置容器大小（内容尺寸）
-    scrollView->setViewSize(CCSizeMake(640, 168)); //设置显示（可视）范围
+    scrollView->setPosition(ccp(0,80));
     scrollView->setContainer(layer);
-    scrollView->setDirection(kCCScrollViewDirectionHorizontal );
-    scrollView->setTouchPriority(-130);   //提升优先级到比ccMenu高
+    scrollView->setDirection(kCCScrollViewDirectionVertical);
+    //scrollView->setBounceable(false);                             //关闭弹性效果
+    scrollView->setTouchPriority(-130);                             //提升优先级到比ccMenu高
     this->addChild(scrollView);
-    */
+    
+    scrollView->setContentOffset(ccp(0,-500));
+
+    
     return true;
+}
+
+void CreatModeSelectLayer::menu1Callback(cocos2d::CCNode *pSender)
+{
+    CCLOG("menu1Callback");
+}
+
+void CreatModeSelectLayer::menu2Callback(cocos2d::CCNode *pSender)
+{
+   
+    
+    
+}
+
+void CreatModeSelectLayer::menu3Callback(cocos2d::CCNode *pSender)
+{
+    CCLOG("menu3Callback");
+    
+}
+
+void CreatModeSelectLayer::menu4Callback(cocos2d::CCNode *pSender)
+{
+    
 }
 
 
@@ -55,28 +95,5 @@ void CreatModeSelectLayer::scrollViewDidScroll(cocos2d::extension::CCScrollView 
 
 void CreatModeSelectLayer::scrollViewDidZoom(cocos2d::extension::CCScrollView *view)
 {
-}
-/*
-void bottonLayer::registerWithTouchDispatcher()
-{
-    //CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this,-10,true);
-}
-
-
-bool bottonLayer::ccTouchBegan(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
-{
-    CCLOG("B");
-    return true;
-}
-
-void bottonLayer::ccTouchMoved(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
-{
-    CCLOG("yeah");
-}
-
-void bottonLayer::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEvent)
-{
-    
     
 }
- */

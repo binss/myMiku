@@ -14,6 +14,7 @@
 #include "CreatModeGestureLayer.h"
 #include "CreatModeDisplayLayer.h"
 #include "CreatModeMenuLayer.h"
+
 USING_NS_CC;
 
 using namespace extension;
