@@ -11,6 +11,7 @@
 #include "GameScene.h"
 #include "GameSongSelectScene.h"
 #include "CreatModeScene.h"
+#include "FoodSelectScene.h"
 
 SceneManager* SceneManager::mSceneManager = NULL;
 
@@ -64,6 +65,12 @@ void SceneManager::changeScene( EnumSceneType enScenType )
         {
             CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(1.0f, CreatModeScene::shareCreatModeScene()));
             break;
+        }
+        case en_FoodSelectScene:
+        {
+            CCDirector::sharedDirector()->replaceScene(CCTransitionCrossFade::create(1.0f, FoodSelectScene::shareFoodSelectScene()));
+            break;
+
         }
             
     }

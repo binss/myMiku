@@ -22,7 +22,8 @@ public:
         en_MainScene,               //初音主画面
         en_GameSongSelectScene,     //游戏歌曲选择画面
         en_GameScene,               //游戏界面
-        en_creatModeScene           //创造模式界面
+        en_creatModeScene,           //创造模式界面
+        en_FoodSelectScene          //食物选择界面
 		
     };
     

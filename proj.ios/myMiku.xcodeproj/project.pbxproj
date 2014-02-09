@@ -196,6 +196,7 @@
 		342923D9188FE3E50040960C /* music in Resources */ = {isa = PBXBuildFile; fileRef = 342923D8188FE3E50040960C /* music */; };
 		342EE00A188A74E200D69D7E /* QuestionBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 342EE009188A74E200D69D7E /* QuestionBox.m */; };
 		343DFD241891698D006BED99 /* GameSongSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 343DFD221891698D006BED99 /* GameSongSelectScene.cpp */; };
+		344EFC5C18A5F35C00E1DA56 /* food in Resources */ = {isa = PBXBuildFile; fileRef = 344EFC5B18A5F35C00E1DA56 /* food */; };
 		346E84BA188D016C00F2D7D5 /* CsvUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 346E84B8188D016C00F2D7D5 /* CsvUtil.cpp */; };
 		347EC9651890F3730025463C /* animation in Resources */ = {isa = PBXBuildFile; fileRef = 347EC9641890F3730025463C /* animation */; };
 		34E1EC5618867B2A00CBE621 /* miku.ExportJson in Resources */ = {isa = PBXBuildFile; fileRef = 34E1EC5318867B2A00CBE621 /* miku.ExportJson */; };
@@ -206,6 +207,7 @@
 		34F7580E1893E49500269243 /* CounterDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34F7580C1893E49500269243 /* CounterDown.cpp */; };
 		34FAF47318935D8F0074F3A4 /* GameScenePauseLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF47118935D8F0074F3A4 /* GameScenePauseLayer.cpp */; };
 		34FAF47618935E000074F3A4 /* GameSceneResultLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FAF47418935E000074F3A4 /* GameSceneResultLayer.cpp */; };
+		34FD987018A5E6F200D77BF0 /* FoodSelectScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34FD986E18A5E6F200D77BF0 /* FoodSelectScene.cpp */; };
 		34FE19C718952EE300249AC9 /* particle in Resources */ = {isa = PBXBuildFile; fileRef = 34FE19C618952EE300249AC9 /* particle */; };
 		375BD4C31868411B0024609E /* ObjectFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BB1868411B0024609E /* ObjectFactory.cpp */; };
 		375BD4C41868411B0024609E /* TriggerBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 375BD4BD1868411B0024609E /* TriggerBase.cpp */; };
@@ -674,6 +676,7 @@
 		342EE009188A74E200D69D7E /* QuestionBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuestionBox.m; path = ../Classes/QuestionBox/QuestionBox.m; sourceTree = "<group>"; };
 		343DFD221891698D006BED99 /* GameSongSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameSongSelectScene.cpp; path = ../Classes/GameSongSelectScene.cpp; sourceTree = "<group>"; };
 		343DFD231891698D006BED99 /* GameSongSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameSongSelectScene.h; path = ../Classes/GameSongSelectScene.h; sourceTree = "<group>"; };
+		344EFC5B18A5F35C00E1DA56 /* food */ = {isa = PBXFileReference; lastKnownFileType = folder; path = food; sourceTree = "<group>"; };
 		346E84B8188D016C00F2D7D5 /* CsvUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CsvUtil.cpp; sourceTree = "<group>"; };
 		346E84B9188D016C00F2D7D5 /* CsvUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CsvUtil.h; sourceTree = "<group>"; };
 		347EC9641890F3730025463C /* animation */ = {isa = PBXFileReference; lastKnownFileType = folder; path = animation; sourceTree = "<group>"; };
@@ -689,6 +692,8 @@
 		34FAF47218935D8F0074F3A4 /* GameScenePauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScenePauseLayer.h; path = ../Classes/GameScenePauseLayer.h; sourceTree = "<group>"; };
 		34FAF47418935E000074F3A4 /* GameSceneResultLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSceneResultLayer.cpp; sourceTree = "<group>"; };
 		34FAF47518935E000074F3A4 /* GameSceneResultLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSceneResultLayer.h; sourceTree = "<group>"; };
+		34FD986E18A5E6F200D77BF0 /* FoodSelectScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FoodSelectScene.cpp; path = ../Classes/FoodSelectScene.cpp; sourceTree = "<group>"; };
+		34FD986F18A5E6F200D77BF0 /* FoodSelectScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodSelectScene.h; path = ../Classes/FoodSelectScene.h; sourceTree = "<group>"; };
 		34FE19C618952EE300249AC9 /* particle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = particle; sourceTree = "<group>"; };
 		373B911F18788FB000198F86 /* CCComBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCComBase.h; sourceTree = "<group>"; };
 		375BD4BB1868411B0024609E /* ObjectFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectFactory.cpp; sourceTree = "<group>"; };
@@ -1387,6 +1392,8 @@
 				3406503A18975C7500EB2147 /* CreatModeMenuLayer.cpp */,
 				340650381897586400EB2147 /* CreatModeSelectLayer.h */,
 				340650371897586400EB2147 /* CreatModeSelectLayer.cpp */,
+				34FD986F18A5E6F200D77BF0 /* FoodSelectScene.h */,
+				34FD986E18A5E6F200D77BF0 /* FoodSelectScene.cpp */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -1882,6 +1889,7 @@
 		78C7DDAA14EBA5050085D0C2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				344EFC5B18A5F35C00E1DA56 /* food */,
 				341FCD251896B5CB004D2A68 /* creatMode */,
 				34FE19C618952EE300249AC9 /* particle */,
 				3406F7121892A47E00872E98 /* audition */,
@@ -1992,6 +2000,7 @@
 				3407786C1886F50700B232D2 /* buttons in Resources */,
 				3406F7131892A47E00872E98 /* audition in Resources */,
 				D41A0AD1160F154A004552AE /* Default-568h@2x.png in Resources */,
+				344EFC5C18A5F35C00E1DA56 /* food in Resources */,
 				3406F70A1892912500872E98 /* game in Resources */,
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				34E1EC5818867B2A00CBE621 /* miku0.png in Resources */,
@@ -2063,6 +2072,7 @@
 				15A3D9241682F7D5002FB0C5 /* b2MouseJoint.cpp in Sources */,
 				15A3D9251682F7D5002FB0C5 /* b2PrismaticJoint.cpp in Sources */,
 				15A3D9261682F7D5002FB0C5 /* b2PulleyJoint.cpp in Sources */,
+				34FD987018A5E6F200D77BF0 /* FoodSelectScene.cpp in Sources */,
 				15A3D9271682F7D5002FB0C5 /* b2RevoluteJoint.cpp in Sources */,
 				15A3D9281682F7D5002FB0C5 /* b2RopeJoint.cpp in Sources */,
 				15A3D9291682F7D5002FB0C5 /* b2WeldJoint.cpp in Sources */,

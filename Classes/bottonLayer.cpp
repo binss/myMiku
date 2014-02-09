@@ -101,7 +101,8 @@ void bottonLayer::ccTouchEnded(cocos2d::CCTouch *pTouch, cocos2d::CCEvent *pEven
 
 void bottonLayer::menu1Callback(cocos2d::CCNode *pSender)
 {
-    CCLOG("menu1Callback");
+    SceneManager::sharedSceneManager()->changeScene(SceneManager::en_FoodSelectScene);
+
 }
 
 void bottonLayer::menu2Callback(cocos2d::CCNode *pSender)
