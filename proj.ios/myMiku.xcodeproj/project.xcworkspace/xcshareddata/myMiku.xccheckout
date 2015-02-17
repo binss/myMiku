@@ -10,29 +10,29 @@
 	<string>myMiku</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>666B130F-B82F-4790-A7A1-55862B673C22</key>
+		<key>0ECA5DE43D741A2866F16D5E7913EA750F794806</key>
 		<string>https://github.com/binss/myMiku.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>proj.ios/myMiku.xcodeproj/project.xcworkspace</string>
+	<string>proj.ios/myMiku.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>666B130F-B82F-4790-A7A1-55862B673C22</key>
+		<key>0ECA5DE43D741A2866F16D5E7913EA750F794806</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/binss/myMiku.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>666B130F-B82F-4790-A7A1-55862B673C22</string>
+	<string>0ECA5DE43D741A2866F16D5E7913EA750F794806</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>666B130F-B82F-4790-A7A1-55862B673C22</string>
+			<string>0ECA5DE43D741A2866F16D5E7913EA750F794806</string>
 			<key>IDESourceControlWCCName</key>
 			<string>myMiku</string>
 		</dict>
